@@ -1,6 +1,6 @@
-import { useRef } from 'react';
-import { Animated } from 'react-native';
-import { CustomButtonState } from './CustomButton.types';
+import {useRef} from 'react';
+import {Animated} from 'react-native';
+import {CustomButtonState} from './CustomButton.types';
 
 export const useCustomButtonController = (): CustomButtonState & {
   handlePressIn: () => void;

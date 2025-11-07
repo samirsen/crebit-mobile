@@ -1,4 +1,4 @@
-import { StyleSheet } from 'react-native';
+import {StyleSheet} from 'react-native';
 
 export const AccountStyles = StyleSheet.create({
   container: {
@@ -15,7 +15,7 @@ export const AccountStyles = StyleSheet.create({
     backgroundColor: '#F7F7F7',
     gap: 20,
     marginBottom: 100,
-    marginTop: 20
+    marginTop: 20,
   },
   title: {
     fontSize: 28,
@@ -36,14 +36,14 @@ export const AccountStyles = StyleSheet.create({
   },
   updateButton: {
     shadowColor: '#000',
-    shadowOffset: { width: 0, height: 2 },
+    shadowOffset: {width: 0, height: 2},
     shadowOpacity: 0.1,
     shadowRadius: 4,
     elevation: 3,
   },
   resetPasswordButton: {
     shadowColor: '#000',
-    shadowOffset: { width: 0, height: 1 },
+    shadowOffset: {width: 0, height: 1},
     shadowOpacity: 0.05,
     shadowRadius: 2,
     elevation: 1,

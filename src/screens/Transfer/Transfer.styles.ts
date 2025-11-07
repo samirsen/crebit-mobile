@@ -1,12 +1,11 @@
-import { StyleSheet, ViewStyle, TextStyle } from 'react-native';
+import {StyleSheet, ViewStyle, TextStyle} from 'react-native';
 
 export const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: '#ffffff',
-        paddingBottom:20,
-        // marginBottom:30
-
+    // paddingBottom:20,
+    // marginBottom:30
   } as ViewStyle,
   scrollContainer: {
     flex: 1,
@@ -15,7 +14,7 @@ export const styles = StyleSheet.create({
   content: {
     // paddingHorizontal: 20,
     paddingTop: 20,
-    paddingBottom: 100, // Add padding to account for bottom tabs
+    paddingBottom: 60, // Add padding to account for bottom tabs
     gap: 20,
   } as ViewStyle,
   conversionSection: {
@@ -44,6 +43,6 @@ export const styles = StyleSheet.create({
     flex: 1,
     marginTop: 8,
     paddingHorizontal: 16,
-     paddingBottom:10,
+    paddingBottom: 10,
   } as ViewStyle,
 });

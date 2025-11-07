@@ -8,7 +8,7 @@ const FrogHopWorld = () => {
         source={require('../../../assets/GIFs/frogHopWorld.gif')}
         style={styles.gif}
         resizeMode="contain"
-      />
+        />
     </View>
   );
 };

@@ -1,4 +1,4 @@
-import { createSlice, PayloadAction } from '@reduxjs/toolkit';
+import {createSlice, PayloadAction} from '@reduxjs/toolkit';
 
 export interface AccountFormData {
   firstName: string;
@@ -32,43 +32,41 @@ const accountSlice = createSlice({
   name: 'account',
   initialState,
   reducers: {
-    updateField: (state, action: PayloadAction<{ field: keyof AccountFormData; value: string }>) => {
-      const { field, value } = action.payload;
+    updateField: (
+      state,
+      action: PayloadAction<{field: keyof AccountFormData; value: string}>,
+    ) => {
+      const {field, value} = action.payload;
       state.formData[field] = value;
       state.isDirty = true;
-      
+
       // Clear error for this field when user starts typing
       if (state.errors[field]) {
         delete state.errors[field];
       }
     },
-    
+
     setLoading: (state, action: PayloadAction<boolean>) => {
       state.isLoading = action.payload;
     },
-    
+
     setErrors: (state, action: PayloadAction<Partial<AccountFormData>>) => {
       state.errors = action.payload;
     },
-    
-    resetForm: (state) => {
+
+    resetForm: state => {
       state.formData = initialState.formData;
       state.errors = {};
       state.isDirty = false;
     },
-    
-    markAsClean: (state) => {
+
+    markAsClean: state => {
       state.isDirty = false;
     },
   },
 });
 
-export const {
-  updateField,
-  setLoading,
-  setErrors,
-  resetForm,
-  markAsClean,
-} = accountSlice.actions;
+export const {updateField, setLoading, setErrors, resetForm, markAsClean} =
+  accountSlice.actions;
 
 export default accountSlice.reducer;

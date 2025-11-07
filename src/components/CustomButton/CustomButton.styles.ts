@@ -1,6 +1,6 @@
-import { ViewStyle } from 'react-native';
-import { colors } from '../../constants/colors';
-import { spacing } from '../../constants/spacing';
+import {ViewStyle} from 'react-native';
+import {colors} from '../../constants/colors';
+import {spacing} from '../../constants/spacing';
 
 export const createStyles = (
   height: number,
@@ -13,7 +13,7 @@ export const createStyles = (
   withShadow: boolean,
   hasGradient: boolean,
   padding: number,
-  style?: ViewStyle
+  style?: ViewStyle,
 ) => ({
   // Base container style (no border for gradient buttons)
   containerStyle: {
@@ -25,7 +25,7 @@ export const createStyles = (
     opacity: disabled ? 0.6 : 1,
     ...(withShadow && {
       shadowColor: colors.text.dark,
-      shadowOffset: { width: 0, height: 2 },
+      shadowOffset: {width: 0, height: 2},
       shadowOpacity: 0.25,
       shadowRadius: 3.84,
       elevation: 5,
@@ -60,7 +60,7 @@ export const createStyles = (
     opacity: disabled ? 0.6 : 1,
     ...(withShadow && {
       shadowColor: colors.text.dark,
-      shadowOffset: { width: 0, height: 2 },
+      shadowOffset: {width: 0, height: 2},
       shadowOpacity: 0.25,
       shadowRadius: 3.84,
       elevation: 5,
