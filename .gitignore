@@ -1,0 +1,94 @@
+# macOS
+.DS_Store
+
+# Xcode / iOS
+build/
+DerivedData/
+*.pbxuser
+!default.pbxuser
+*.mode1v3
+!default.mode1v3
+*.mode2v3
+!default.mode2v3
+*.perspectivev3
+!default.perspectivev3
+xcuserdata/
+*.xccheckout
+*.moved-aside
+*.xcuserstate
+*.hmap
+*.ipa
+**/.xcode.env.local
+*.dSYM.zip
+*.dSYM
+
+# Android / Gradle / IntelliJ
+.gradle/
+.idea/
+build/
+local.properties
+*.iml
+*.hprof
+.cxx/
+*.keystore
+!debug.keystore
+captures/
+app/release/
+
+# React Native / Node
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+package-lock.json
+
+# Metro
+.metro-health-check*
+.expo/
+
+# Hermes
+*.cpuprofile
+
+# Fastlane
+**/fastlane/report.xml
+**/fastlane/Preview.html
+**/fastlane/screenshots
+**/fastlane/test_output
+
+# Bundled JS (only generated in release builds)
+*.jsbundle
+*.bundle
+
+# Ruby / CocoaPods
+Pods/
+**/Pods/
+vendor/bundle/
+
+# Jest / Testing
+coverage/
+jest-cache/
+jest-temp/
+
+# Yarn v2+
+.yarn/*
+!.yarn/patches
+!.yarn/plugins
+!.yarn/releases
+!.yarn/sdks
+!.yarn/versions
+
+# Misc
+.env
+.env.local
+.env.development
+.env.production
+.env.test
+
+# React Native specific
+android/app/debug.keystore
+ios/Podfile.lock
+
+# macOS user files
+*.swp
+*.swo
+*~

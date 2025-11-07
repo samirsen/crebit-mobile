@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#003A3C">
+
+    <!-- Gradient Background -->
+    <ImageView
+        android:id="@+id/gradient_background"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:src="@drawable/gradient_bg"
+        android:scaleType="centerCrop" />
+
+    <!-- Splash Text (initially invisible) -->
+    <ImageView
+        android:id="@+id/splash_text"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:src="@drawable/splash_text"
+        android:scaleType="centerInside"
+        android:layout_marginTop="?attr/actionBarSize"
+        android:layout_marginBottom="?attr/actionBarSize"
+        android:alpha="0" />
+
+</RelativeLayout>
