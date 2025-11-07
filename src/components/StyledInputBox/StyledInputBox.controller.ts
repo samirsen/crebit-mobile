@@ -1,12 +1,12 @@
-import { useState, useRef, useCallback } from 'react';
-import { TextInput } from 'react-native';
+import {useState, useRef, useCallback} from 'react';
+import {TextInput} from 'react-native';
 
 export const useStyledInputBoxController = (
   ref: any,
   rightIconOnPress?: () => void,
   onSubmitEditing?: () => void,
   onFocus?: () => void,
-  isDropdown?: boolean
+  isDropdown?: boolean,
 ) => {
   const [isFocused, setIsFocused] = useState(false);
   const internalRef = useRef<TextInput>(null);
@@ -46,7 +46,7 @@ export const useStyledInputBoxController = (
       }
       return;
     }
-    
+
     // Otherwise, focus the input
     handleFocus();
   }, [isDropdown, rightIconOnPress, handleFocus]);

@@ -121,7 +121,7 @@ export const OtpVerificationStyles = StyleSheet.create({
     marginBottom: 12,
   },
   goBackButton: {
-    marginBottom: 24,
+    marginBottom: 5,
   },
   goBackButtonLogin: {
     marginBottom: 0,

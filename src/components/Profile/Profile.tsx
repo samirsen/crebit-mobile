@@ -1,18 +1,38 @@
-import React from 'react';
-import { View, Image } from 'react-native';
-import { ProfileProps } from './Profile.types';
-import { styles } from './Profile.styles';
+// import React from 'react';
+// import { View, Image } from 'react-native';
+// import { ProfileProps } from './Profile.types';
+// import { styles } from './Profile.styles';
 
-export const Profile: React.FC<ProfileProps> = ({ size = 24, style }) => {
+// export const Profile: React.FC<ProfileProps> = ({ size = 24, style }) => {
+//   return (
+//     <View style={[styles.container, { width: size, height: size }, style]}>
+//       <Image
+//         source={require('../../../assets/images/profile.png')}
+//         style={[styles.image, { width: size, height: size }]}
+//         resizeMode="cover"
+//       />
+//     </View>
+//   );
+// };
+
+import React from 'react';
+import {View, Image, TouchableOpacity} from 'react-native';
+import {ProfileProps} from './Profile.types';
+import {styles} from './Profile.styles';
+import {useAppDispatch} from '../../hooks';
+import {logout} from '../../store/slices/authSlice';
+
+export const Profile: React.FC<ProfileProps> = ({size = 24, style}) => {
+  const dispatch = useAppDispatch();
   return (
-    <View style={[styles.container, { width: size, height: size }, style]}>
-      <Image 
-        source={require('../../../assets/images/profile.png')}
-        style={[styles.image, { width: size, height: size }]}
-        resizeMode="cover"
-      />
+    <View style={[styles.container, {width: size, height: size}, style]}>
+      <TouchableOpacity onPress={() => dispatch(logout())}>
+        <Image
+          source={require('../../../assets/images/profile.png')}
+          style={[styles.image, {width: size, height: size}]}
+          resizeMode="cover"
+        />
+      </TouchableOpacity>
     </View>
   );
 };
-
-

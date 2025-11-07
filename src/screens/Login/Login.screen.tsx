@@ -43,6 +43,23 @@ export const LoginScreen: React.FC = React.memo(() => {
     navigation.goBack();
   }, [navigation]);
 
+  const handleSubmitEditing = useCallback(
+    (field: keyof typeof form) => {
+      switch (field) {
+        case 'phoneNumber':
+          emailRef.current?.focus();
+          break;
+        case 'email':
+          passwordRef.current?.focus();
+          break;
+        case 'password':
+          handleContinue(); // Trigger CTA action
+          break;
+      }
+    },
+    [handleContinue, emailRef, passwordRef],
+  );
+
   return (
     <SafeAreaView style={LoginStyles.container}>
       <KeyboardAvoidingView
@@ -75,6 +92,7 @@ export const LoginScreen: React.FC = React.memo(() => {
                   keyboardType="phone-pad"
                   containerStyle={LoginStyles.inputBox}
                   inputStyle={LoginStyles.input}
+                  onSubmitEditing={() => handleSubmitEditing('phoneNumber')}
                 />
                 <StyledInputBox
                   label="Email"
@@ -90,13 +108,14 @@ export const LoginScreen: React.FC = React.memo(() => {
                   autoCapitalize="none"
                   containerStyle={LoginStyles.inputBox}
                   inputStyle={LoginStyles.input}
+                  onSubmitEditing={() => handleSubmitEditing('email')}
                 />
                 <StyledInputBox
                   label="Password"
                   labelRequired
                   value={form.password}
                   onChangeText={handleChange('password')}
-                  placeholder="type your password"
+                  placeholder="Enter your password"
                   ref={passwordRef}
                   borderColor="#CDCDCD"
                   borderRadius={5}
@@ -104,6 +123,7 @@ export const LoginScreen: React.FC = React.memo(() => {
                   secureTextEntry
                   containerStyle={LoginStyles.inputBox}
                   inputStyle={LoginStyles.input}
+                  onSubmitEditing={() => handleSubmitEditing('password')}
                 />
               </View>
             </View>

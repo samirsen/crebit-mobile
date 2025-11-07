@@ -60,6 +60,26 @@ export const SignUpScreen: React.FC = React.memo(() => {
     navigation.goBack();
   }, [navigation]);
 
+  const handleSubmitEditing = useCallback(
+    (field: keyof typeof form) => {
+      switch (field) {
+        case 'firstName':
+          lastNameRef.current?.focus();
+          break;
+        case 'lastName':
+          phoneRef.current?.focus();
+          break;
+        case 'phoneNumber':
+          emailRef.current?.focus();
+          break;
+        case 'email':
+          handleContinue(); // Trigger CTA action
+          break;
+      }
+    },
+    [handleContinue, lastNameRef, phoneRef, emailRef],
+  );
+
   return (
     <SafeAreaView style={SignUpStyles.container}>
       <KeyboardAvoidingView
@@ -87,6 +107,7 @@ export const SignUpScreen: React.FC = React.memo(() => {
                   onChangeText={handleChange('firstName')}
                   placeholder="Enter First Name"
                   ref={firstNameRef}
+                  onSubmitEditing={() => handleSubmitEditing('firstName')}
                   borderColor="#CDCDCD"
                   borderRadius={5}
                   height={41}
@@ -100,6 +121,7 @@ export const SignUpScreen: React.FC = React.memo(() => {
                   onChangeText={handleChange('lastName')}
                   placeholder="Enter Last Name"
                   ref={lastNameRef}
+                  onSubmitEditing={() => handleSubmitEditing('lastName')}
                   borderColor="#CDCDCD"
                   borderRadius={5}
                   height={41}
@@ -128,6 +150,7 @@ export const SignUpScreen: React.FC = React.memo(() => {
                   onChangeText={handleChange('phoneNumber')}
                   placeholder="+1 000 0000"
                   ref={phoneRef}
+                  onSubmitEditing={() => handleSubmitEditing('phoneNumber')}
                   borderColor="#CDCDCD"
                   borderRadius={5}
                   height={41}
@@ -142,6 +165,7 @@ export const SignUpScreen: React.FC = React.memo(() => {
                   onChangeText={handleChange('email')}
                   placeholder="your-email@example.com"
                   ref={emailRef}
+                  onSubmitEditing={() => handleSubmitEditing('email')}
                   borderColor="#CDCDCD"
                   borderRadius={5}
                   height={41}

@@ -1,7 +1,7 @@
-import { ViewStyle, TextStyle } from 'react-native';
-import { colors } from '../../constants/colors';
-import { spacing } from '../../constants/spacing';
-import { fonts, fontSizes, fontWeights } from '../../constants/fonts';
+import {ViewStyle, TextStyle} from 'react-native';
+import {colors} from '../../constants/colors';
+import {spacing} from '../../constants/spacing';
+import {fonts, fontSizes, fontWeights} from '../../constants/fonts';
 
 export const createStyles = (
   height: number,
@@ -11,7 +11,7 @@ export const createStyles = (
   backgroundColor: string,
   isFocused: boolean,
   disabled: boolean,
-  isDropdown: boolean
+  isDropdown: boolean,
 ) => ({
   defaultContainerStyle: {
     marginBottom: spacing.md + 4,

@@ -42,6 +42,17 @@ export const CreatePasswordScreen: React.FC = React.memo(() => {
     navigation.goBack();
   }, [navigation]);
 
+  const handleSubmitEditing = useCallback(
+    (field: keyof typeof form) => {
+      if (field === 'password') {
+        confirmRef.current?.focus();
+      } else if (field === 'confirmPassword') {
+        handleContinue(); // Trigger CTA action
+      }
+    },
+    [handleContinue, confirmRef],
+  );
+
   return (
     <SafeAreaView style={CreatePasswordStyles.container}>
       <KeyboardAvoidingView
@@ -71,6 +82,7 @@ export const CreatePasswordScreen: React.FC = React.memo(() => {
                   placeholder="Enter your password"
                   secureTextEntry
                   ref={passwordRef}
+                  onSubmitEditing={() => handleSubmitEditing('password')}
                   borderColor="#CDCDCD"
                   containerStyle={CreatePasswordStyles.inputBox}
                   borderRadius={5}
@@ -85,6 +97,7 @@ export const CreatePasswordScreen: React.FC = React.memo(() => {
                   placeholder="Confirm your password"
                   secureTextEntry
                   ref={confirmRef}
+                  onSubmitEditing={() => handleSubmitEditing('confirmPassword')}
                   containerStyle={CreatePasswordStyles.inputBox}
                   borderColor="#CDCDCD"
                   borderRadius={5}

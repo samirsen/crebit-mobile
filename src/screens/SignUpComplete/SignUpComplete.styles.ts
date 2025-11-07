@@ -34,7 +34,7 @@ export const SignUpCompleteStyles = StyleSheet.create({
     marginBottom: 12,
   },
   goBackButton: {
-    marginBottom: 24,
+    marginBottom: 30,
   },
   progressBarSection: {
     flexDirection: 'row',
@@ -60,4 +60,3 @@ export const SignUpCompleteStyles = StyleSheet.create({
     marginRight: 4,
   },
 });
-

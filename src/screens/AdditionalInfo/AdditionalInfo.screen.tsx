@@ -13,17 +13,38 @@ import {AdditionalInfoStyles} from './AdditionalInfo.styles';
 import {useAdditionalInfoController} from './AdditionalInfo.controller';
 import {StepIndicator} from '../../components/StepIndicator';
 import {ButtonGroup} from '../../components/ButtonGroup';
+import {useRef, useCallback} from 'react';
 
 export const AdditionalInfoScreen: React.FC = React.memo(() => {
   const {form, handleChange, handleContinue, handleGoBack} =
     useAdditionalInfoController();
 
   // Input refs (optional for field focus jump)
-  const streetRef = React.useRef<TextInput>(null);
-  const cityRef = React.useRef<TextInput>(null);
-  const stateRef = React.useRef<TextInput>(null);
-  const zipRef = React.useRef<TextInput>(null);
-  const countryRef = React.useRef<TextInput>(null);
+  const streetRef = useRef<TextInput>(null);
+  const cityRef = useRef<TextInput>(null);
+  const stateRef = useRef<TextInput>(null);
+  const zipRef = useRef<TextInput>(null);
+  const countryRef = useRef<TextInput>(null);
+
+  const handleSubmitEditing = useCallback(
+    (field: keyof typeof form) => {
+      switch (field) {
+        case 'street':
+          cityRef.current?.focus();
+          break;
+        case 'city':
+          zipRef.current?.focus(); // Correct the focus here
+          break;
+        case 'zip':
+          countryRef.current?.focus();
+          break;
+        case 'country':
+          handleContinue(); // Trigger CTA action
+          break;
+      }
+    },
+    [handleContinue, cityRef, zipRef, countryRef],
+  );
 
   return (
     <SafeAreaView style={AdditionalInfoStyles.container}>
@@ -53,6 +74,8 @@ export const AdditionalInfoScreen: React.FC = React.memo(() => {
                   onChangeText={handleChange('street')}
                   placeholder="Enter your Street Address"
                   ref={streetRef}
+                  borderColor="#CDCDCD"
+                  onSubmitEditing={() => handleSubmitEditing('street')}
                   borderRadius={5}
                   height={41}
                   containerStyle={AdditionalInfoStyles.inputBox}

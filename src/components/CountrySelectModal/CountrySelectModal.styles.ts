@@ -1,7 +1,7 @@
-import { StyleSheet } from 'react-native';
-import { colors } from '../../constants/colors';
-import { spacing } from '../../constants/spacing';
-import { fonts, fontSizes, fontWeights } from '../../constants/fonts';
+import {StyleSheet} from 'react-native';
+import {colors} from '../../constants/colors';
+import {spacing} from '../../constants/spacing';
+import {fonts, fontSizes, fontWeights} from '../../constants/fonts';
 
 export const styles = StyleSheet.create({
   modalOverlay: {
@@ -10,7 +10,7 @@ export const styles = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center',
   },
-  
+
   modalContent: {
     backgroundColor: colors.surface,
     borderRadius: spacing.sm + 4,
@@ -18,7 +18,7 @@ export const styles = StyleSheet.create({
     minHeight: 250,
     maxHeight: 500,
   },
-  
+
   modalHeader: {
     flexDirection: 'row',
     alignItems: 'center',
@@ -28,29 +28,29 @@ export const styles = StyleSheet.create({
     borderBottomWidth: 1,
     borderBottomColor: '#F0F0F0',
   },
-  
+
   modalTitle: {
     fontSize: fontSizes.lg,
     fontWeight: fontWeights.semiBold,
     fontFamily: fonts.satoshi.semiBold,
     color: colors.secondary,
   },
-  
+
   closeButton: {
     padding: spacing.xs,
   },
-  
+
   closeText: {
     fontSize: fontSizes.lg,
     color: colors.secondary,
     fontWeight: fontWeights.semiBold,
     fontFamily: fonts.satoshi.semiBold,
   },
-  
+
   countryList: {
     minHeight: 250,
   },
-  
+
   countryOption: {
     marginTop: spacing.sm,
     flexDirection: 'row',
@@ -63,13 +63,13 @@ export const styles = StyleSheet.create({
     borderRadius: spacing.sm,
     backgroundColor: '#eaeaeaff',
   },
-  
+
   selectedCountryOption: {
     backgroundColor: '#efefefff',
     borderWidth: 1,
     borderColor: colors.secondary,
   },
-  
+
   countryText: {
     fontSize: fontSizes.base,
     color: colors.secondary,
@@ -77,7 +77,7 @@ export const styles = StyleSheet.create({
     fontFamily: fonts.satoshi.medium,
     textAlign: 'center',
   },
-  
+
   separator: {
     height: spacing.md + 4,
   },

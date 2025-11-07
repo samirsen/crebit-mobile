@@ -29,26 +29,27 @@
 		D1460C151FB3431BAFD49D68 /* Inter-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 281B773C544949D19BC4DCEA /* Inter-Regular.ttf */; };
 		D88968A7A6314F19A954EEB1 /* Obviously.otf in Resources */ = {isa = PBXBuildFile; fileRef = 6556ECD272FA408B9955F9DB /* Obviously.otf */; };
 		E33A0F64485F43C1A2B75893 /* Obviously_Blck.otf in Resources */ = {isa = PBXBuildFile; fileRef = 7787B9557BB04D6F81157A8F /* Obviously_Blck.otf */; };
-		F9877DDE4CBEDF0E8F9865CE /* libPods-CrebitPay.a in Frameworks */ = {isa = PBXBuildFile; fileRef = CC5F0A2C9BFB98DA022C030D /* libPods-CrebitPay.a */; };
+		F1C236AE45B54140344BB69A /* libPods-CrebitPay.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 391A956845B242C42436A5BF /* libPods-CrebitPay.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		03037B13F7A84EEEBC033BA0 /* Inter-Thin.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = "Inter-Thin.ttf"; path = "../assets/fonts/icomoon/Inter-Thin.ttf"; sourceTree = "<group>"; };
 		0C7C7B5D957C4B669EAC9C17 /* Obviously_Semi 2.otf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = "Obviously_Semi 2.otf"; path = "../assets/fonts/icomoon/Obviously_Semi 2.otf"; sourceTree = "<group>"; };
+		1173977A7715991ED5B680E0 /* Pods-CrebitPay.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CrebitPay.debug.xcconfig"; path = "Target Support Files/Pods-CrebitPay/Pods-CrebitPay.debug.xcconfig"; sourceTree = "<group>"; };
 		13B07F961A680F5B00A75B9A /* CrebitPay.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CrebitPay.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		13B07FB51A68108700A75B9A /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Images.xcassets; path = CrebitPay/Images.xcassets; sourceTree = "<group>"; };
 		13B07FB61A68108700A75B9A /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Info.plist; path = CrebitPay/Info.plist; sourceTree = "<group>"; };
 		13B07FB81A68108700A75B9A /* PrivacyInfo.xcprivacy */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = PrivacyInfo.xcprivacy; path = CrebitPay/PrivacyInfo.xcprivacy; sourceTree = "<group>"; };
 		1C1CEE77EA6F45C1BDA84003 /* Satoshi-VariableItalic.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "Satoshi-VariableItalic.ttf"; path = "../assets/fonts/icomoon/Satoshi-VariableItalic.ttf"; sourceTree = "<group>"; };
-		225C0C8690EAC67DCB6EB9DF /* Pods-CrebitPay.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CrebitPay.release.xcconfig"; path = "Target Support Files/Pods-CrebitPay/Pods-CrebitPay.release.xcconfig"; sourceTree = "<group>"; };
 		24FF180AC4C144DBA66FDABE /* Inter-Black.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = "Inter-Black.ttf"; path = "../assets/fonts/icomoon/Inter-Black.ttf"; sourceTree = "<group>"; };
 		281B773C544949D19BC4DCEA /* Inter-Regular.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = "Inter-Regular.ttf"; path = "../assets/fonts/icomoon/Inter-Regular.ttf"; sourceTree = "<group>"; };
 		2CC0EB5DB52E4BE4B22B9B5C /* Inter-SemiBold.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = "Inter-SemiBold.ttf"; path = "../assets/fonts/icomoon/Inter-SemiBold.ttf"; sourceTree = "<group>"; };
 		2F730381598148689ABA55DA /* Inter-ExtraBold.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = "Inter-ExtraBold.ttf"; path = "../assets/fonts/icomoon/Inter-ExtraBold.ttf"; sourceTree = "<group>"; };
+		391A956845B242C42436A5BF /* libPods-CrebitPay.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-CrebitPay.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		587B98F3B4844CF0BC2C87F9 /* Obviously_Semi.otf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = Obviously_Semi.otf; path = ../assets/fonts/icomoon/Obviously_Semi.otf; sourceTree = "<group>"; };
 		5E6B01A50D7F451798C71DCB /* Inter-ExtraLight.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = "Inter-ExtraLight.ttf"; path = "../assets/fonts/icomoon/Inter-ExtraLight.ttf"; sourceTree = "<group>"; };
+		63160EF673D44211D9E5FB6A /* Pods-CrebitPay.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CrebitPay.release.xcconfig"; path = "Target Support Files/Pods-CrebitPay/Pods-CrebitPay.release.xcconfig"; sourceTree = "<group>"; };
 		6556ECD272FA408B9955F9DB /* Obviously.otf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = Obviously.otf; path = ../assets/fonts/icomoon/Obviously.otf; sourceTree = "<group>"; };
-		73119F6B31C86C509DD023BD /* Pods-CrebitPay.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CrebitPay.debug.xcconfig"; path = "Target Support Files/Pods-CrebitPay/Pods-CrebitPay.debug.xcconfig"; sourceTree = "<group>"; };
 		7319C3E4511F4852BD74E5C2 /* icomoon.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = icomoon.ttf; path = ../assets/fonts/icomoon/icomoon.ttf; sourceTree = "<group>"; };
 		761780EC2CA45674006654EE /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = AppDelegate.swift; path = CrebitPay/AppDelegate.swift; sourceTree = "<group>"; };
 		7787B9557BB04D6F81157A8F /* Obviously_Blck.otf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = Obviously_Blck.otf; path = ../assets/fonts/icomoon/Obviously_Blck.otf; sourceTree = "<group>"; };
@@ -57,7 +58,6 @@
 		A3F9A6A9D45B44E28BA2C6B2 /* selection.json */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = selection.json; path = ../assets/fonts/icomoon/selection.json; sourceTree = "<group>"; };
 		B12E695C627C4C34BDA69D80 /* Satoshi-Variable.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "Satoshi-Variable.ttf"; path = "../assets/fonts/icomoon/Satoshi-Variable.ttf"; sourceTree = "<group>"; };
 		BE35CC51013A49AC83DA4CAA /* fonnts.com-Obviously_Semi.otf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "fonnts.com-Obviously_Semi.otf"; path = "../assets/fonts/icomoon/fonnts.com-Obviously_Semi.otf"; sourceTree = "<group>"; };
-		CC5F0A2C9BFB98DA022C030D /* libPods-CrebitPay.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-CrebitPay.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		DE586C7E4D9041E7BE3E7F4F /* Inter-Bold.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = "Inter-Bold.ttf"; path = "../assets/fonts/icomoon/Inter-Bold.ttf"; sourceTree = "<group>"; };
 		ED297162215061F000B7C4FE /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = System/Library/Frameworks/JavaScriptCore.framework; sourceTree = SDKROOT; };
 		EECA680FE89B4B838C5CD036 /* Inter-Light.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = "Inter-Light.ttf"; path = "../assets/fonts/icomoon/Inter-Light.ttf"; sourceTree = "<group>"; };
@@ -68,7 +68,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F9877DDE4CBEDF0E8F9865CE /* libPods-CrebitPay.a in Frameworks */,
+				F1C236AE45B54140344BB69A /* libPods-CrebitPay.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -116,7 +116,7 @@
 			isa = PBXGroup;
 			children = (
 				ED297162215061F000B7C4FE /* JavaScriptCore.framework */,
-				CC5F0A2C9BFB98DA022C030D /* libPods-CrebitPay.a */,
+				391A956845B242C42436A5BF /* libPods-CrebitPay.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -154,8 +154,8 @@
 		BBD78D7AC51CEA395F1C20DB /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				73119F6B31C86C509DD023BD /* Pods-CrebitPay.debug.xcconfig */,
-				225C0C8690EAC67DCB6EB9DF /* Pods-CrebitPay.release.xcconfig */,
+				1173977A7715991ED5B680E0 /* Pods-CrebitPay.debug.xcconfig */,
+				63160EF673D44211D9E5FB6A /* Pods-CrebitPay.release.xcconfig */,
 			);
 			path = Pods;
 			sourceTree = "<group>";
@@ -167,13 +167,13 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 13B07F931A680F5B00A75B9A /* Build configuration list for PBXNativeTarget "CrebitPay" */;
 			buildPhases = (
-				E38871FF1C835D1697A99C8C /* [CP] Check Pods Manifest.lock */,
+				05865B05ABA21DD571DD0502 /* [CP] Check Pods Manifest.lock */,
 				13B07F871A680F5B00A75B9A /* Sources */,
 				13B07F8C1A680F5B00A75B9A /* Frameworks */,
 				13B07F8E1A680F5B00A75B9A /* Resources */,
 				00DD1BFF1BD5951E006B06BC /* Bundle React Native code and images */,
-				E888E78A00731B8DB808A215 /* [CP] Embed Pods Frameworks */,
-				503D059236852A69BE7EF19B /* [CP] Copy Pods Resources */,
+				B0327E76A0A5D858824B29FD /* [CP] Embed Pods Frameworks */,
+				F63E41743C16C923B119CD6A /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -263,24 +263,7 @@
 			shellPath = /bin/sh;
 			shellScript = "set -e\n\nWITH_ENVIRONMENT=\"$REACT_NATIVE_PATH/scripts/xcode/with-environment.sh\"\nREACT_NATIVE_XCODE=\"$REACT_NATIVE_PATH/scripts/react-native-xcode.sh\"\n\n/bin/sh -c \"$WITH_ENVIRONMENT $REACT_NATIVE_XCODE\"\n";
 		};
-		503D059236852A69BE7EF19B /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-CrebitPay/Pods-CrebitPay-resources-${CONFIGURATION}-input-files.xcfilelist",
-			);
-			name = "[CP] Copy Pods Resources";
-			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-CrebitPay/Pods-CrebitPay-resources-${CONFIGURATION}-output-files.xcfilelist",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-CrebitPay/Pods-CrebitPay-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		E38871FF1C835D1697A99C8C /* [CP] Check Pods Manifest.lock */ = {
+		05865B05ABA21DD571DD0502 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -302,7 +285,7 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
-		E888E78A00731B8DB808A215 /* [CP] Embed Pods Frameworks */ = {
+		B0327E76A0A5D858824B29FD /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -317,6 +300,23 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-CrebitPay/Pods-CrebitPay-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		F63E41743C16C923B119CD6A /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-CrebitPay/Pods-CrebitPay-resources-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Copy Pods Resources";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-CrebitPay/Pods-CrebitPay-resources-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-CrebitPay/Pods-CrebitPay-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -335,7 +335,7 @@
 /* Begin XCBuildConfiguration section */
 		13B07F941A680F5B00A75B9A /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 73119F6B31C86C509DD023BD /* Pods-CrebitPay.debug.xcconfig */;
+			baseConfigurationReference = 1173977A7715991ED5B680E0 /* Pods-CrebitPay.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
@@ -370,7 +370,7 @@
 		};
 		13B07F951A680F5B00A75B9A /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 225C0C8690EAC67DCB6EB9DF /* Pods-CrebitPay.release.xcconfig */;
+			baseConfigurationReference = 63160EF673D44211D9E5FB6A /* Pods-CrebitPay.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
