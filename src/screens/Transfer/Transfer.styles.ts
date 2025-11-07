@@ -13,15 +13,17 @@ export const styles = StyleSheet.create({
     flexGrow: 1,
   } as ViewStyle,
   content: {
-    paddingHorizontal: 20,
+    // paddingHorizontal: 20,
     paddingTop: 20,
     paddingBottom: 100, // Add padding to account for bottom tabs
     gap: 20,
   } as ViewStyle,
   conversionSection: {
+    paddingHorizontal: 16,
     gap: 16,
   } as ViewStyle,
   supportSection: {
+    width: '100%',
     alignItems: 'center' as const,
     gap: 12,
   } as ViewStyle,
@@ -35,17 +37,13 @@ export const styles = StyleSheet.create({
     textAlign: 'center' as const,
   } as TextStyle,
   scheduleCallButton: {
-    width: 357,
-    height: 48,
-    gap: 8,
-    padding: 18,
-    borderRadius: 4,
-    borderWidth: 1,
-    borderColor: '#003233',
+    width: '100%',
+    paddingHorizontal: 16,
   } as ViewStyle,
   transactionHistorySection: {
     flex: 1,
     marginTop: 8,
+    paddingHorizontal: 16,
      paddingBottom:10,
   } as ViewStyle,
 });

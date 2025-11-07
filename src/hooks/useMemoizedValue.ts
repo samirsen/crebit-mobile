@@ -1,7 +1,7 @@
-import { useMemo } from 'react';
+import { useMemoizedValueController } from './useMemoizedValue/useMemoizedValue.controller';
 
 export const useMemoizedValue = <T>(value: T, deps: React.DependencyList): T => {
-  return useMemo(() => value, deps);
+  return useMemoizedValueController(value, deps);
 };
 
 

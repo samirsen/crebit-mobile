@@ -7,25 +7,29 @@ import { TransferScreen } from '../screens/Transfer';
 import { AccountComponent } from '../screens/Account';
 import CustomIcon from '../components/CustomIcon/CustomIcon';
 import { StyledText } from '../components/StyledText';
+import { useStatusBar } from '../hooks/useStatusBar';
+import { useKeyboardVisibility } from '../hooks/useKeyboardVisibility';
 
-export type MainTabsParamList = {
-  Home: undefined;
-  Transfer: undefined;
-  Account: undefined;
-};
+import type { MainTabsParamList } from './MainTabs/MainTabs.types';
 
 const Tab = createBottomTabNavigator<MainTabsParamList>();
 
 export const MainTabs = () => {
+  // Use the StatusBar hook to manage status bar based on current route
+  useStatusBar();
+  
+  // Use keyboard visibility to hide/show tab bar
+  const { isKeyboardVisible } = useKeyboardVisibility();
+
   return (
     <Tab.Navigator
-      screenOptions={{
+      screenOptions={({ route }) => ({
         headerShown: false,
         tabBarActiveTintColor: colors.primary,
         tabBarInactiveTintColor: '#868686',
 
-        tabBarStyle: {
-          position: 'absolute',
+        // Dynamic status bar based on route - hide tab bar when keyboard is visible
+        tabBarStyle: isKeyboardVisible ? { display: 'none' } : {
           left: 10,
           right: 10,
           bottom: 0,
@@ -72,7 +76,7 @@ export const MainTabs = () => {
           fontSize: 12,
           marginBottom: 4,
         },
-      }}
+      })}
     >
       <Tab.Screen
         name="Home"

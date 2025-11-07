@@ -1,10 +1,10 @@
-
 import { createIconSetFromIcoMoon } from 'react-native-vector-icons';
 import icoMoonConfig from '../../../assets/fonts/icomoon/selection.json';
+import { fonts } from '../../constants/fonts';
 
 const CustomIcon = createIconSetFromIcoMoon(
   icoMoonConfig,
-  'icomoon',
+  fonts.icomoon,
   'icomoon.ttf'
 );
 

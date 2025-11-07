@@ -1,17 +1,11 @@
 import React from 'react';
-import { View, StyleSheet } from 'react-native';
+import { View } from 'react-native';
 import CustomIcon from '../CustomIcon/CustomIcon';
 import { Profile } from '../Profile';
-import { spacing } from '../../constants/spacing';
+import { colors } from '../../constants/colors';
 import { StyledText } from '../StyledText';
-
-export type HeaderTheme = 'dark' | 'light';
-
-interface HeaderProps {
-  theme?: HeaderTheme;
-  showProfile?: boolean;
-  showMenu?: boolean;
-}
+import { HeaderProps, HeaderTheme } from './Header.types';
+import { styles } from './Header.styles';
 
 export const Header: React.FC<HeaderProps> = ({ 
   theme = 'dark', 
@@ -19,8 +13,8 @@ export const Header: React.FC<HeaderProps> = ({
   showMenu = true 
 }) => {
   const isDark = theme === 'dark';
-  const textColor = isDark ? '#FFFFFF' : '#003233';
-  const iconColor = isDark ? '#FFFFFF' : '#003233';
+  const textColor = isDark ? colors.text.primary : colors.secondary;
+  const iconColor = isDark ? colors.text.primary : colors.secondary;
   const title = 'Crebit';
 
   return (
@@ -34,35 +28,10 @@ export const Header: React.FC<HeaderProps> = ({
       <StyledText style={[styles.logo, { color: textColor }]}>{title}</StyledText>
       
       <View style={styles.rightSection}>
-        {showProfile && <Profile size={24} />}
+        {showProfile && <Profile size={28} />}
       </View>
     </View>
   );
 };
 
-const styles = StyleSheet.create({
-  header: {
-    flexDirection: 'row',
-    justifyContent: 'space-between',
-    alignItems: 'center',
-    paddingHorizontal: spacing.md,
-    paddingBottom: spacing.lg,
-    backgroundColor: 'transparent',
-  },
-  leftSection: {
-    width: 24,
-    alignItems: 'flex-start',
-  },
-  rightSection: {
-    width: 24,
-    alignItems: 'flex-end',
-  },
-  logo: {
-    fontSize: 20,
-    fontWeight: '700',
-    fontFamily:'Obviously',
-    textAlign: 'center',
-    flex: 1,
-  },
-});
 

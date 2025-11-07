@@ -4,6 +4,8 @@ import {
   ScrollView,
   TouchableOpacity,
   SafeAreaView,
+  KeyboardAvoidingView,
+  Platform,
 } from 'react-native';
 import LinearGradient from 'react-native-linear-gradient';
 import { useHomeController } from './Home.controller';
@@ -19,7 +21,7 @@ import { CurrencyInput } from '../../components/CurrencyInput';
 import { SwapButton } from '../../components/SwapButton';
 import { ServiceComparisonCard } from '../../components/ServiceComparisonCard';
 import { InfoCard } from '../../components/InfoCard';
-import { SwipeToExchangeButton } from '../../components/SwipeToExchangeButton';
+import SwipeToPayButton from '../../components/SwipeToExchangeButton/SwipeToExchangeButton';
 
 export const HomeScreen: React.FC<HomeProps> = React.memo(() => {
   const {
@@ -103,7 +105,7 @@ export const HomeScreen: React.FC<HomeProps> = React.memo(() => {
       {/* Currency Input - You Send */}
       <CurrencyInput
         label="YOU SEND"
-        amount={`R$ ${homeState.sendAmount}`}
+        amount={`${homeState.sendAmount}`}
         currency={homeState.exchangeRate.from}
         isEditable={true}
         onAmountChange={handleSendAmountChange}
@@ -139,7 +141,9 @@ export const HomeScreen: React.FC<HomeProps> = React.memo(() => {
       />
             {/* Swipe to Exchange Button */}
       <View style={styles.swipeButtonContainer}>
-        <SwipeToExchangeButton
+        <SwipeToPayButton
+        resetOnComplete
+
           onSwipeComplete={handleExchangeInitiation}
           disabled={!homeState.sendAmount || parseFloat(homeState.sendAmount) <= 0}
         />
@@ -162,7 +166,7 @@ export const HomeScreen: React.FC<HomeProps> = React.memo(() => {
       {/* Currency Input - You Send */}
       <CurrencyInput
         label="YOU SEND"
-        amount={`R$ ${homeState.sendAmount}`}
+        amount={`${homeState.sendAmount}`}
         currency={homeState.exchangeRate.from}
         isEditable={true}
         onAmountChange={handleSendAmountChange}
@@ -208,7 +212,8 @@ export const HomeScreen: React.FC<HomeProps> = React.memo(() => {
 
       {/* Swipe to Exchange Button */}
       <View style={styles.swipeButtonContainer}>
-        <SwipeToExchangeButton
+        <SwipeToPayButton
+        resetOnComplete
           onSwipeComplete={handleExchangeInitiation}
           disabled={!homeState.sendAmount || parseFloat(homeState.sendAmount) <= 0}
         />
@@ -218,20 +223,25 @@ export const HomeScreen: React.FC<HomeProps> = React.memo(() => {
 
   return (
     <SafeAreaView style={styles.container}>
-      <Header theme="dark" />
-
-      <ScrollView 
-        showsVerticalScrollIndicator={false}
-        contentContainerStyle={styles.scrollContent}
-        style={styles.liveRateCard}
-        scrollEnabled
-        shouldRasterizeIOS
-        bounces={true}
-        bouncesZoom={true}
-        alwaysBounceVertical={false}
-        alwaysBounceHorizontal={false}
-
+      <Header theme="dark" showProfile showMenu />
+      
+      <KeyboardAvoidingView 
+        style={{ flex: 1 }}
+        behavior={Platform.OS === 'ios' ? 'padding' : undefined}
+        enabled={Platform.OS === 'ios'}
       >
+        <ScrollView 
+          showsVerticalScrollIndicator={false}
+          contentContainerStyle={styles.scrollContent}
+          style={styles.liveRateCard}
+          scrollEnabled
+          shouldRasterizeIOS
+          bounces={true}
+          bouncesZoom={true}
+          alwaysBounceVertical={false}
+          alwaysBounceHorizontal={false}
+          keyboardShouldPersistTaps="handled"
+        >
         {/* Live Rate Card with Gradient Background */}
         <LinearGradient
           colors={['rgba(0, 0, 0, 0.2)', 'rgba(3, 134, 132, 0.2)', 'rgba(0, 50, 51, 0.2)']}
@@ -241,7 +251,7 @@ export const HomeScreen: React.FC<HomeProps> = React.memo(() => {
         >
        <View style={styles.liveRateHeader}>
   <StyledText style={styles.liveRateTitle}>Live Rate</StyledText>
-  <TouchableOpacity style={{ position: 'absolute', right: -70 }}>
+  <TouchableOpacity style={{ position: 'absolute', right: -70 }} >
     <CustomIcon name="refresh" size={20} color="#4B7172" />
   </TouchableOpacity>
 </View>
@@ -263,7 +273,8 @@ export const HomeScreen: React.FC<HomeProps> = React.memo(() => {
           {/* Dynamic Section Content */}
           {homeState.activeSection === 'crebit' ? renderCrebitSection : renderCompareSection}
         </LinearGradient>
-      </ScrollView>
+        </ScrollView>
+      </KeyboardAvoidingView>
 
       {/* Country Selection Modal */}
       <CountrySelectModal

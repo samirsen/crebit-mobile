@@ -113,8 +113,9 @@ export const AccountComponent: React.FC = React.memo(() => {
       <Header theme="light" showProfile showMenu />
       <KeyboardAvoidingView 
         style={{ flex: 1 }}
-        behavior={Platform.OS === 'ios' ? 'padding' : 'height'}
-        keyboardVerticalOffset={Platform.OS === 'ios' ? 0 : 20}
+        behavior={Platform.OS === 'ios' ? 'padding' : undefined}
+        keyboardVerticalOffset={Platform.OS === 'ios' ? 0 : 0}
+        enabled={Platform.OS === 'ios'}
       >
         <ScrollView 
           ref={scrollViewRef}
@@ -205,7 +206,7 @@ export const AccountComponent: React.FC = React.memo(() => {
         </View>
 
             {/* Action Buttons */}
-            <View style={isKeyboardVisible ? AccountStyles.buttonContainerKeyboard : AccountStyles.buttonContainer}>
+            <View style={AccountStyles.buttonContainer}>
           {/* Update Button */}
           <CustomButton
             text="Update"

@@ -1,97 +1,197 @@
-This is a new [**React Native**](https://reactnative.dev) project, bootstrapped using [`@react-native-community/cli`](https://github.com/react-native-community/cli).
+# CrebitPay
 
-# Getting Started
+A modern React Native currency exchange and money transfer application with real-time rates and seamless user experience.
 
-> **Note**: Make sure you have completed the [Set Up Your Environment](https://reactnative.dev/docs/set-up-your-environment) guide before proceeding.
+## 🚀 Features
 
-## Step 1: Start Metro
+- **Live Currency Exchange**: Real-time exchange rates with instant conversion calculations
+- **Multi-Currency Support**: Support for USD, BRL, and MXN with easy currency switching
+- **Service Comparison**: Compare CrebitPay rates with competitors (Wise, Flywire)
+- **Transaction Management**: Track monthly and lifetime conversions with detailed history
+- **Account Management**: Complete user profile management with KYC compliance
+- **Swipe-to-Pay**: Intuitive swipe gesture for initiating transfers
 
-First, you will need to run **Metro**, the JavaScript build tool for React Native.
+## 🏗️ Architecture
 
-To start the Metro dev server, run the following command from the root of your React Native project:
+Built with modern React Native architecture patterns:
 
-```sh
-# Using npm
-npm start
+- **Redux Toolkit** for state management
+- **React Navigation v7** with nested navigators (Root/Auth/App/Tabs)
+- **Component-Controller-Styles-Types** separation for maintainability
+- **Custom hooks** for reusable logic and keyboard handling
+- **TypeScript** for type safety throughout the application
 
-# OR using Yarn
-yarn start
-```
+## 📱 Screens
 
-## Step 2: Build and run your app
+- **Home**: Currency exchange with live rates and comparison tools
+- **Transfer**: Transaction history and conversion tracking
+- **Account**: User profile management and settings
 
-With Metro running, open a new terminal window/pane from the root of your React Native project, and use one of the following commands to build and run your Android or iOS app:
+## 🛠️ Tech Stack
 
-### Android
+- React Native 0.77.0
+- TypeScript 5.0.4
+- Redux Toolkit & React Redux
+- React Navigation v7
+- React Native Linear Gradient
+- React Native Vector Icons
+- React Native Gesture Handler
 
-```sh
-# Using npm
-npm run android
+## 📋 Prerequisites
 
-# OR using Yarn
-yarn android
-```
+- Node.js >= 18
+- React Native development environment
+- iOS: Xcode and CocoaPods
+- Android: Android Studio and SDK
 
-### iOS
+## 🚀 Getting Started
 
-For iOS, remember to install CocoaPods dependencies (this only needs to be run on first clone or after updating native deps).
+### Installation
 
-The first time you create a new project, run the Ruby bundler to install CocoaPods itself:
+```bash
+# Install dependencies
+npm install
 
-```sh
+# iOS setup (first time only)
 bundle install
-```
-
-Then, and every time you update your native dependencies, run:
-
-```sh
 bundle exec pod install
 ```
 
-For more information, please visit [CocoaPods Getting Started guide](https://guides.cocoapods.org/using/getting-started.html).
+### Running the App
 
-```sh
-# Using npm
+```bash
+# Start Metro bundler
+npm start
+
+# Run on iOS
 npm run ios
 
-# OR using Yarn
-yarn ios
+# Run on Android  
+npm run android
 ```
 
-If everything is set up correctly, you should see your new app running in the Android Emulator, iOS Simulator, or your connected device.
+### Development
 
-This is one way to run your app — you can also build it directly from Android Studio or Xcode.
+```bash
+# Run linter
+npm run lint
 
-## Step 3: Modify your app
+# Run tests
+npm test
+```
 
-Now that you have successfully run the app, let's make changes!
+## 📁 Project Structure
 
-Open `App.tsx` in your text editor of choice and make some changes. When you save, your app will automatically update and reflect these changes — this is powered by [Fast Refresh](https://reactnative.dev/docs/fast-refresh).
+```
+CrebitPay/
+├── __tests__/                    # Test files
+│   └── App.test.tsx
+├── android/                      # Android native code
+│   ├── app/
+│   │   ├── build.gradle
+│   │   ├── src/main/
+│   │   └── ...
+│   ├── gradle/
+│   └── ...
+├── ios/                          # iOS native code
+│   ├── CrebitPay/
+│   │   ├── AppDelegate.swift
+│   │   ├── Images.xcassets/
+│   │   ├── Info.plist
+│   │   └── LaunchScreen.storyboard
+│   ├── CrebitPay.xcodeproj/
+│   ├── Podfile
+│   └── Pods/
+├── assets/                       # Static assets
+│   ├── fonts/
+│   │   └── icomoon/             # Custom icon fonts
+│   │       ├── *.otf            # OpenType fonts
+│   │       ├── *.ttf            # TrueType fonts
+│   │       └── selection.json   # Icon mappings
+│   └── images/
+│       └── profile.png
+├── src/                          # Source code
+│   ├── components/              # Reusable UI components
+│   │   ├── ConversionCard/
+│   │   ├── CountrySelectModal/
+│   │   ├── CurrencyInput/
+│   │   ├── CustomButton/
+│   │   ├── CustomIcon/
+│   │   ├── Header/
+│   │   ├── InfoCard/
+│   │   ├── Profile/
+│   │   ├── ServiceComparisonCard/
+│   │   ├── StatusBadge/
+│   │   ├── StyledInputBox/
+│   │   ├── StyledText/
+│   │   ├── SwapButton/
+│   │   ├── SwipeToExchangeButton/
+│   │   └── TransactionHistory/
+│   ├── constants/               # App constants
+│   │   ├── colors.ts           # Color palette
+│   │   └── spacing.ts          # Spacing values
+│   ├── hooks/                   # Custom React hooks
+│   │   ├── useAppDispatch.ts   # Redux dispatch hook
+│   │   ├── useAppSelector.ts   # Redux selector hook
+│   │   ├── useKeyboardVisibility.ts
+│   │   ├── useMemoizedValue.ts
+│   │   └── useStatusBar.ts
+│   ├── navigation/              # Navigation configuration
+│   │   ├── AppNavigator.tsx    # Main app navigator
+│   │   ├── AuthNavigator.tsx   # Authentication flow
+│   │   ├── MainTabs.tsx        # Bottom tab navigator
+│   │   └── RootNavigator.tsx   # Root navigation wrapper
+│   ├── screens/                 # Screen components (MVC pattern)
+│   │   ├── Account/
+│   │   │   ├── Account.component.tsx
+│   │   │   ├── Account.controller.ts
+│   │   │   ├── Account.styles.ts
+│   │   │   ├── Account.types.ts
+│   │   │   └── index.ts
+│   │   ├── Home/
+│   │   │   ├── Home.component.tsx
+│   │   │   ├── Home.controller.ts
+│   │   │   ├── Home.styles.ts
+│   │   │   ├── Home.types.ts
+│   │   │   └── index.ts
+│   │   └── Transfer/
+│   │       ├── Transfer.component.tsx
+│   │       ├── Transfer.controller.ts
+│   │       ├── Transfer.styles.ts
+│   │       ├── Transfer.types.ts
+│   │       └── index.ts
+│   ├── store/                   # Redux store configuration
+│   │   ├── slices/
+│   │   │   ├── accountSlice.ts  # Account state management
+│   │   │   └── authSlice.ts     # Authentication state
+│   │   └── store.ts             # Store configuration
+│   └── utils/                   # Utility functions
+│       ├── formatCurrency.ts    # Currency formatting
+│       └── logger.ts            # Logging utilities
+├── vendor/                       # Ruby gems (iOS dependencies)
+├── node_modules/                 # Node.js dependencies
+├── App.tsx                       # Root component
+├── index.js                      # Entry point
+├── app.json                      # React Native configuration
+├── babel.config.js               # Babel configuration
+├── jest.config.js                # Jest testing configuration
+├── metro.config.js               # Metro bundler configuration
+├── react-native.config.js        # React Native configuration
+├── tsconfig.json                 # TypeScript configuration
+├── package.json                  # Dependencies and scripts
+├── package-lock.json             # Dependency lock file
+├── yarn.lock                     # Yarn lock file
+├── Gemfile                       # Ruby dependencies
+├── Gemfile.lock                  # Ruby dependency lock
+└── README.md                     # Project documentation
+```
 
-When you want to forcefully reload, for example to reset the state of your app, you can perform a full reload:
+## 🔒 Compliance
 
-- **Android**: Press the <kbd>R</kbd> key twice or select **"Reload"** from the **Dev Menu**, accessed via <kbd>Ctrl</kbd> + <kbd>M</kbd> (Windows/Linux) or <kbd>Cmd ⌘</kbd> + <kbd>M</kbd> (macOS).
-- **iOS**: Press <kbd>R</kbd> in iOS Simulator.
+- Fully compliant with KYC regulations
+- Registered under financial law with licensed partners
+- Secure transaction processing
 
-## Congratulations! :tada:
+## 📄 License
 
-You've successfully run and modified your React Native App. :partying_face:
-
-### Now what?
-
-- If you want to add this new React Native code to an existing application, check out the [Integration guide](https://reactnative.dev/docs/integration-with-existing-apps).
-- If you're curious to learn more about React Native, check out the [docs](https://reactnative.dev/docs/getting-started).
-
-# Troubleshooting
-
-If you're having issues getting the above steps to work, see the [Troubleshooting](https://reactnative.dev/docs/troubleshooting) page.
-
-# Learn More
-
-To learn more about React Native, take a look at the following resources:
-
-- [React Native Website](https://reactnative.dev) - learn more about React Native.
-- [Getting Started](https://reactnative.dev/docs/environment-setup) - an **overview** of React Native and how setup your environment.
-- [Learn the Basics](https://reactnative.dev/docs/getting-started) - a **guided tour** of the React Native **basics**.
-- [Blog](https://reactnative.dev/blog) - read the latest official React Native **Blog** posts.
-- [`@facebook/react-native`](https://github.com/facebook/react-native) - the Open Source; GitHub **repository** for React Native.
+Private - All rights reserved

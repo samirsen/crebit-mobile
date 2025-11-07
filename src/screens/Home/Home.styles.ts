@@ -6,7 +6,7 @@ export const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: colors.background,
-    paddingHorizontal: spacing.md,
+    // paddingHorizontal: spacing.md,
 
   },
   scrollContent: {
@@ -18,7 +18,7 @@ export const styles = StyleSheet.create({
   },
   liveRateCard: {
     paddingHorizontal: spacing.md,
-    shadowColor: '#00000080',
+    shadowColor: '#000000',
     shadowOffset: { width: 4, height: 4 },
     shadowOpacity: 1,
     shadowRadius: 4,
@@ -65,7 +65,8 @@ liveRateTitle: {
   },
   crebitContainer:{
     paddingBottom: spacing.lg,
-    width: '90%',
+    width: '100%',
+    paddingHorizontal: spacing.md,
   },
   exchangeRate: {
     alignItems: 'center',
@@ -81,7 +82,8 @@ liveRateTitle: {
   // Compare section styles
   comparisonContainer: {
     // marginTop: spacing.md,
-    width: '90%',
+   width: '100%',
+    paddingHorizontal: spacing.md,
     paddingBottom: spacing.lg,
   },
   // Crebit section specific styles

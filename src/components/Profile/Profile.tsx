@@ -1,10 +1,7 @@
 import React from 'react';
-import { View, Image, StyleSheet } from 'react-native';
-
-interface ProfileProps {
-  size?: number;
-  style?: any;
-}
+import { View, Image } from 'react-native';
+import { ProfileProps } from './Profile.types';
+import { styles } from './Profile.styles';
 
 export const Profile: React.FC<ProfileProps> = ({ size = 24, style }) => {
   return (
@@ -18,14 +15,4 @@ export const Profile: React.FC<ProfileProps> = ({ size = 24, style }) => {
   );
 };
 
-const styles = StyleSheet.create({
-  container: {
-    borderRadius: 999,
-    overflow: 'hidden',
-    opacity: 1,
-  },
-  image: {
-    borderRadius: 999,
-  },
-});
 

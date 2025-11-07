@@ -4,25 +4,13 @@ import {
   View,
   TouchableOpacity,
   FlatList,
-  StyleSheet,
 } from 'react-native';
 import { StyledText } from '../StyledText';
 import CustomIcon from '../CustomIcon/CustomIcon';
-
-export interface CountryOption {
-  code: string;
-  name: string;
-  flag: string;
-}
-
-export interface CountrySelectModalProps {
-  visible: boolean;
-  onClose: () => void;
-  onSelect: (country: CountryOption) => void;
-  countries: CountryOption[];
-  selectedCountry?: CountryOption;
-  title?: string;
-}
+import { colors } from '../../constants/colors';
+import { CountryOption, CountrySelectModalProps } from './CountrySelectModal.types';
+import { styles } from './CountrySelectModal.styles';
+import { useCountrySelectModalController } from './CountrySelectModal.controller';
 
 export const CountrySelectModal: React.FC<CountrySelectModalProps> = React.memo(({
   visible,
@@ -32,10 +20,7 @@ export const CountrySelectModal: React.FC<CountrySelectModalProps> = React.memo(
   selectedCountry,
   title = 'Select Country',
 }) => {
-  const handleCountryPress = (country: CountryOption) => {
-    onSelect(country);
-    onClose();
-  };
+  const { handleCountryPress, renderSeparator } = useCountrySelectModalController(onSelect, onClose);
 
   const renderCountryItem = ({ item }: { item: CountryOption }) => {
     const isSelected = selectedCountry?.code === item.code;
@@ -53,7 +38,7 @@ export const CountrySelectModal: React.FC<CountrySelectModalProps> = React.memo(
           {item.flag} {item.name}
         </StyledText>
         {isSelected && (
-          <CustomIcon name="arrowUp" size={20} color="#003233" />
+          <CustomIcon name="arrowUp" size={20} color={colors.secondary} />
         )}
       </TouchableOpacity>
     );
@@ -89,7 +74,7 @@ export const CountrySelectModal: React.FC<CountrySelectModalProps> = React.memo(
             renderItem={renderCountryItem}
             showsVerticalScrollIndicator={false}
             style={styles.countryList}
-            ItemSeparatorComponent={() => <View style={{ height: 20 }} />}
+            ItemSeparatorComponent={() => <View style={styles.separator} />} 
           />
         </View>
       </TouchableOpacity>
@@ -99,80 +84,6 @@ export const CountrySelectModal: React.FC<CountrySelectModalProps> = React.memo(
 
 CountrySelectModal.displayName = 'CountrySelectModal';
 
-const styles = StyleSheet.create({
-  modalOverlay: {
-    flex: 1,
-    backgroundColor: 'rgba(0, 0, 0, 0.5)',
-    justifyContent: 'center' as const,
-    alignItems: 'center' as const,
-  },
-  
-  modalContent: {
-    backgroundColor: '#FFFFFF',
-    borderRadius: 12,
-    width: '80%',
-    minHeight: 250,
-    maxHeight: 500,
-  },
-  
-  modalHeader: {
-    flexDirection: 'row' as const,
-    alignItems: 'center' as const,
-    justifyContent: 'space-between' as const,
-    paddingHorizontal: 20,
-    paddingVertical: 16,
-    borderBottomWidth: 1,
-    borderBottomColor: '#F0F0F0',
-  },
-  
-  modalTitle: {
-    fontSize: 18,
-    fontWeight: '600' as const,
-    color: '#003233',
-  },
-  
-  closeButton: {
-    padding: 4,
-  },
-  
-  closeText: {
-    fontSize: 18,
-    color: '#003233',
-    fontWeight: '600',
-  },
-  
-  countryList: {
-    minHeight: 250,
-  },
-  
-  countryOption: {
-    marginTop: 8,
-    flexDirection: 'row' as const,
-    alignItems: 'center' as const,
-    justifyContent: 'space-between' as const,
-    paddingVertical: 16,
-    paddingHorizontal: 16,
-    marginHorizontal: 16,
-    marginVertical: 4,
-    borderRadius: 8,
-    backgroundColor: '#eaeaeaff',
-  },
-  
-  selectedCountryOption: {
-    backgroundColor: '#efefefff',
-    borderWidth: 1,
-    borderColor: '#003233',
-  },
-  
-  countryText: {
-    fontSize: 16,
-    color: '#003233',
-    fontWeight: '500' as const,
-    //align text center
-    textAlign: 'center',
-    
-  },
-});
 
 export default CountrySelectModal;
 

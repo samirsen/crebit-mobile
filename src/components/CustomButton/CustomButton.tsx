@@ -4,55 +4,29 @@ import {
   View,
   ActivityIndicator,
   Image,
-  ViewStyle,
-  GestureResponderEvent,
-  ImageSourcePropType,
   Animated,
-  DimensionValue,
-  TextStyle,
 } from 'react-native';
 import LinearGradient from 'react-native-linear-gradient';
 import CustomIcon from '../CustomIcon/CustomIcon';
 import { StyledText } from '../StyledText';
-
-export interface CustomButtonProps {
-  text?: string;
-  onPress?: (event: GestureResponderEvent) => void;
-  gradientColors?: string[];
-  backgroundColor?: string;
-  textColor?: string;
-  width?: DimensionValue;
-  height?: number;
-  borderRadius?: number;
-  fontSize?: number;
-  fontWeight?: TextStyle['fontWeight'];
-  leftIcon?: string;
-  rightIcon?: string;
-  middleIcon?: string;
-  iconSize?: number;
-  iconColor?: string;
-  imageSource?: ImageSourcePropType;
-  isLoading?: boolean;
-  disabled?: boolean;
-  withShadow?: boolean;
-  fullWidth?: boolean;
-  style?: ViewStyle;
-  borderWidth?: number;
-  borderColor?: string;
-  padding?: number;
-}
+import { colors } from '../../constants/colors';
+import { spacing } from '../../constants/spacing';
+import { fonts, fontSizes } from '../../constants/fonts';
+import { CustomButtonProps } from './CustomButton.types';
+import { createStyles } from './CustomButton.styles';
+import { useCustomButtonController } from './CustomButton.controller';
 
 export const CustomButton: React.FC<CustomButtonProps> = React.memo(({
   text,
   onPress,
   gradientColors,
-  backgroundColor = '#007AFF',
-  textColor = '#FFFFFF',
+  backgroundColor = colors.primary,
+  textColor = colors.text.primary,
   width,
   height = 50,
-  borderRadius = 12,
-  fontSize = 16,
-  fontWeight = '600' as TextStyle['fontWeight'],
+  borderRadius = spacing.sm,
+  fontSize = fontSizes.base,
+  fontWeight = '600',
   leftIcon,
   rightIcon,
   middleIcon,
@@ -66,71 +40,27 @@ export const CustomButton: React.FC<CustomButtonProps> = React.memo(({
   style,
   borderWidth = 0,
   borderColor = 'transparent',
-  padding = 16,
+  padding = spacing.md,
 }) => {
-  const scaleValue = React.useRef(new Animated.Value(1)).current;
+  const { scaleValue, handlePressIn, handlePressOut } = useCustomButtonController();
   
   const finalIconColor = iconColor || textColor;
   const isIconOnly = !text && (leftIcon || rightIcon || middleIcon || imageSource);
   const hasGradient = gradientColors && gradientColors.length > 0;
 
-  const handlePressIn = () => {
-    Animated.spring(scaleValue, {
-      toValue: 0.95,
-      useNativeDriver: true,
-    }).start();
-  };
-
-  const handlePressOut = () => {
-    Animated.spring(scaleValue, {
-      toValue: 1,
-      useNativeDriver: true,
-    }).start();
-  };
-
-  // Base container style (no border for gradient buttons)
-  const containerStyle: ViewStyle = {
+  const styles = createStyles(
     height,
-    width: fullWidth ? '100%' : width,
-    borderColor: 'transparent',
-    borderWidth: 0,
-    borderRadius: 12,
-    opacity: disabled ? 0.6 : 1,
-    ...(withShadow && {
-      shadowColor: '#000',
-      shadowOffset: { width: 0, height: 2 },
-      shadowOpacity: 0.25,
-      shadowRadius: 3.84,
-      elevation: 5,
-    }),
-    ...style,
-  };
-
-  // Content style for both gradient and solid buttons
-  const contentStyle: ViewStyle = {
-    flex: 1,
+    width,
+    fullWidth,
     borderRadius,
-    borderWidth: hasGradient ? borderWidth : 0,
-    borderColor: hasGradient ? borderColor : 'transparent',
-    paddingHorizontal: 0,
-    paddingVertical: 0,
-    flexDirection: 'row',
-    alignItems: 'center',
-    justifyContent: 'center',
-  };
-
-  // Solid button style (includes border)
-  const solidButtonStyle: ViewStyle = {
-    ...containerStyle,
     borderWidth,
     borderColor,
-    borderRadius,
-    paddingHorizontal: padding,
-    // paddingVertical: padding / 2,
-    flexDirection: 'row',
-    alignItems: 'center',
-    justifyContent: 'center',
-  };
+    disabled,
+    withShadow,
+    hasGradient,
+    padding,
+    style
+  );
 
   const renderContent = () => {
     if (isLoading) {
@@ -182,14 +112,14 @@ export const CustomButton: React.FC<CustomButtonProps> = React.memo(({
 
     // Text with optional icons
     return (
-      <View style={{ flexDirection: 'row', alignItems: 'center', justifyContent: 'center' }}>
+      <View style={styles.contentContainer}>
         {leftIcon && (
-          <View style={{ marginRight: 8 }}>
+          <View style={styles.iconContainer}>
             {iconElement(leftIcon)}
           </View>
         )}
         {imageSource && (
-          <View style={{ marginRight: text ? 8 : 0 }}>
+          <View style={[styles.iconContainer, !text && { marginRight: 0 }]}>
             {imageElement}
           </View>
         )}
@@ -206,6 +136,7 @@ export const CustomButton: React.FC<CustomButtonProps> = React.memo(({
             style={{
               includeFontPadding: false,
               textAlignVertical: 'center',
+              fontFamily: fonts.primary,
             }}
           >
             {text}
@@ -214,7 +145,7 @@ export const CustomButton: React.FC<CustomButtonProps> = React.memo(({
         
         {middleIcon && !leftIcon && !rightIcon && iconElement(middleIcon)}
         {rightIcon && (
-          <View style={{ marginLeft: 8 }}>
+          <View style={styles.iconContainerRight}>
             {iconElement(rightIcon)}
           </View>
         )}
@@ -232,18 +163,18 @@ export const CustomButton: React.FC<CustomButtonProps> = React.memo(({
         activeOpacity={0.8}
       >
         {hasGradient ? (
-          <View style={containerStyle}>
+          <View style={styles.containerStyle}>
             <LinearGradient
               colors={gradientColors!}
               start={{ x: 0, y: 0 }}
               end={{ x: 1, y: 0 }}
-              style={contentStyle}
+              style={styles.contentStyle}
             >
               {renderContent()}
             </LinearGradient>
           </View>
         ) : (
-          <View style={[solidButtonStyle, { backgroundColor }]}>
+          <View style={[styles.solidButtonStyle, { backgroundColor }]}>
             {renderContent()}
           </View>
         )}

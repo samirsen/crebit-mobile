@@ -1,21 +1,7 @@
 import React from 'react';
-import { Text, TextProps, StyleSheet } from 'react-native';
-
-interface StyledTextProps extends TextProps {
-  children: React.ReactNode;
-  width?: number | string;
-  height?: number | string;
-  fontWeight?: '100' | '200' | '300' | '400' | '500' | '600' | '700' | '800' | '900' | 'normal' | 'bold';
-  fontSize?: number;
-  color?: string;
-  textAlign?: 'auto' | 'left' | 'right' | 'center' | 'justify';
-  lineHeight?: number;
-  letterSpacing?: number;
-  textDecorationLine?: 'none' | 'underline' | 'line-through' | 'underline line-through';
-  numberOfLines?: number;
-  ellipsizeMode?: 'head' | 'middle' | 'tail' | 'clip';
-  style?: any;
-}
+import { Text } from 'react-native';
+import { StyledTextProps } from './StyledText.types';
+import { styles } from './StyledText.styles';
 
 export const StyledText: React.FC<StyledTextProps> = ({
   children,
@@ -61,9 +47,3 @@ export const StyledText: React.FC<StyledTextProps> = ({
   );
 };
 
-const styles = StyleSheet.create({
-  defaultText: {
-    fontFamily: 'Satoshi-Variable',
-    fontWeight: '100',
-  },
-});

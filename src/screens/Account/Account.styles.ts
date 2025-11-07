@@ -32,6 +32,7 @@ export const AccountStyles = StyleSheet.create({
   buttonContainer: {
     gap: 12,
     marginTop: 10,
+    paddingBottom: 20,
   },
   updateButton: {
     shadowColor: '#000',
@@ -46,10 +47,5 @@ export const AccountStyles = StyleSheet.create({
     shadowOpacity: 0.05,
     shadowRadius: 2,
     elevation: 1,
-  },
-  buttonContainerKeyboard: {
-    gap: 12,
-    marginTop: 10,
-    paddingVertical: 2,
   },
 });

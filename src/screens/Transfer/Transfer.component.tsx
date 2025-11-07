@@ -3,6 +3,8 @@ import {
   View,
   SafeAreaView,
   ScrollView,
+  KeyboardAvoidingView,
+  Platform,
 } from 'react-native';
 import { useTransferController } from './Transfer.controller';
 import { styles } from './Transfer.styles';
@@ -25,7 +27,6 @@ export const TransferScreen: React.FC<TransferProps> = React.memo(() => {
     text: "Schedule a Call",
     onPress: handleScheduleCall,
     leftIcon: "phoneCall",
-    width: 357,
     height: 48,
     borderRadius: 4,
     fontSize: 14,
@@ -34,23 +35,29 @@ export const TransferScreen: React.FC<TransferProps> = React.memo(() => {
     gradientColors: ['#054546', '#076E70'],
     borderWidth: 1,
     borderColor: '#003233',
-    padding: 18,
+    // padding: 16,
+
   }), [handleScheduleCall]);
 
   return (
     <SafeAreaView style={styles.container}>
       <Header theme="light" showProfile showMenu />
       
-      <ScrollView 
-        style={styles.scrollContainer}
-        contentContainerStyle={styles.content}
-        showsVerticalScrollIndicator={true}
-        nestedScrollEnabled={true}
-        scrollEventThrottle={16}
-        bounces={true}
-        alwaysBounceVertical={false}
-        keyboardShouldPersistTaps="handled"
+      <KeyboardAvoidingView 
+        style={{ flex: 1 }}
+        behavior={Platform.OS === 'ios' ? 'padding' : undefined}
+        enabled={Platform.OS === 'ios'}
       >
+        <ScrollView 
+          style={styles.scrollContainer}
+          contentContainerStyle={styles.content}
+          showsVerticalScrollIndicator={true}
+          nestedScrollEnabled={true}
+          scrollEventThrottle={16}
+          bounces={true}
+          alwaysBounceVertical={false}
+          keyboardShouldPersistTaps="handled"
+        >
         {/* Conversion Cards Section */}
         <View style={styles.conversionSection}>
           <ConversionCard
@@ -68,7 +75,10 @@ export const TransferScreen: React.FC<TransferProps> = React.memo(() => {
           <StyledText style={styles.supportText}>
             Have any concerns?
           </StyledText>
+          <View style={styles.scheduleCallButton}>
+
           <CustomButton {...scheduleCallButtonProps} />
+          </View>
         </View>
 
         {/* Transaction History Section */}
@@ -78,7 +88,8 @@ export const TransferScreen: React.FC<TransferProps> = React.memo(() => {
             onViewReceipt={handleViewReceipt}
           />
         </View>
-      </ScrollView>
+        </ScrollView>
+      </KeyboardAvoidingView>
     </SafeAreaView>
   );
 });

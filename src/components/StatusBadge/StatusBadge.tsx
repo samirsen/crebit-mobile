@@ -1,18 +1,10 @@
 import React from 'react';
-import { View, ViewStyle } from 'react-native';
+import { View } from 'react-native';
 import { StyledText } from '../StyledText';
 import CustomIcon from '../CustomIcon/CustomIcon';
-
-export type StatusType = 'processing' | 'completed' | 'failed' | 'pending';
-
-export interface StatusBadgeProps {
-  status: StatusType;
-  leftIcon?: string;
-  rightIcon?: string;
-  iconOnly?: boolean;
-  textOnly?: boolean;
-  style?: ViewStyle;
-}
+import { StatusBadgeProps } from './StatusBadge.types';
+import { styles } from './StatusBadge.styles';
+import { useStatusBadgeController } from './StatusBadge.controller';
 
 export const StatusBadge: React.FC<StatusBadgeProps> = React.memo(({
   status,
@@ -22,46 +14,7 @@ export const StatusBadge: React.FC<StatusBadgeProps> = React.memo(({
   textOnly = false,
   style,
 }) => {
-  const getStatusConfig = (statusType: StatusType) => {
-    switch (statusType) {
-      case 'processing':
-        return {
-          text: 'Processing',
-          backgroundColor: '#F5E6D3',
-          textColor: '#B47300',
-          iconColor: '#B47300',
-        };
-      case 'completed':
-        return {
-          text: 'Completed',
-          backgroundColor: '#E6F3F3',
-          textColor: '#003233',
-          iconColor: '#003233',
-        };
-      case 'failed':
-        return {
-          text: 'Failed',
-          backgroundColor: '#FFE6E6',
-          textColor: '#FF3B30',
-          iconColor: '#FF3B30',
-        };
-      case 'pending':
-        return {
-          text: 'Pending',
-          backgroundColor: '#FFF3E6',
-          textColor: '#FF9500',
-          iconColor: '#FF9500',
-        };
-      default:
-        return {
-          text: 'Unknown',
-          backgroundColor: '#F5F5F5',
-          textColor: '#666666',
-          iconColor: '#666666',
-        };
-    }
-  };
-
+  const { getStatusConfig } = useStatusBadgeController();
   const config = getStatusConfig(status);
 
   if (iconOnly && (leftIcon || rightIcon)) {
@@ -122,42 +75,3 @@ export const StatusBadge: React.FC<StatusBadgeProps> = React.memo(({
 
 StatusBadge.displayName = 'StatusBadge';
 
-const styles = {
-  container: {
-    flexDirection: 'row' as const,
-    alignItems: 'center' as const,
-    justifyContent: 'center' as const,
-    paddingHorizontal: 8,
-    paddingVertical: 4,
-    borderRadius: 12,
-    minHeight: 24,
-  } as ViewStyle,
-  textOnlyContainer: {
-    paddingHorizontal: 8,
-    paddingVertical: 4,
-    borderRadius: 12,
-    minHeight: 24,
-    alignItems: 'center' as const,
-    justifyContent: 'center' as const,
-  } as ViewStyle,
-  iconOnlyContainer: {
-    flexDirection: 'row' as const,
-    alignItems: 'center' as const,
-    justifyContent: 'center' as const,
-    paddingHorizontal: 4,
-    paddingVertical: 4,
-  } as ViewStyle,
-  text: {
-    fontFamily: 'Satoshi',
-    fontWeight: '500' as const,
-    fontSize: 12,
-    lineHeight: 12,
-    letterSpacing: -0.36, // -3%
-  },
-  leftIcon: {
-    marginRight: 4,
-  },
-  rightIcon: {
-    marginLeft: 4,
-  },
-};
