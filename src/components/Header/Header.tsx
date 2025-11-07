@@ -4,7 +4,7 @@ import CustomIcon from '../CustomIcon/CustomIcon';
 import { Profile } from '../Profile';
 import { colors } from '../../constants/colors';
 import { StyledText } from '../StyledText';
-import { HeaderProps, HeaderTheme } from './Header.types';
+import { HeaderProps} from './Header.types';
 import { styles } from './Header.styles';
 
 export const Header: React.FC<HeaderProps> = ({ 

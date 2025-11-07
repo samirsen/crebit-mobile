@@ -1,3 +1,4 @@
+import { fonts } from '../../constants';
 import { colors } from '../../constants/colors';
 
 export const ROOT_NAVIGATOR_CONFIG = {
@@ -8,6 +9,7 @@ export const ROOT_NAVIGATOR_CONFIG = {
   },
   navigationContainer: {
     theme: {
+      dark: false,
       colors: {
         primary: colors.primary,
         background: colors.background,
@@ -16,6 +18,17 @@ export const ROOT_NAVIGATOR_CONFIG = {
         border: colors.border,
         notification: colors.warning,
       },
+      fonts: {
+        regular: {
+          fontFamily: fonts.satoshi.regular,
+        },
+        medium: {
+          fontFamily: fonts.satoshi.medium,
+        },
+        bold: {
+          fontFamily: fonts.satoshi.blackItalic,
+        },
+      }
     },
   },
 } as const;

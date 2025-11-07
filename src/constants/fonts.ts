@@ -99,3 +99,18 @@ export const fontWeights = {
   extraBold: '800',
   black: '900',
 } as const;
+
+//"Obviously-Semi
+// SatoshiVariable-Bold
+//SatoshiVariable-Bold_Regular
+// SatoshiVariable-Bold_Bold
+// SatoshiVariable
+
+// 'Inter-Black',
+//  'Inter-ExtraBold',
+//  'Inter-ExtraLight',
+//  'Inter-Light',
+//  'Inter-Medium',
+// 'Inter-Regular',
+//  'Inter-SemiBold',
+// 'Inter-Thin',

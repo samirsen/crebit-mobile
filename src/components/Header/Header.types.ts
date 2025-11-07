@@ -1,4 +1,4 @@
-export type HeaderTheme = 'dark' | 'light';
+type HeaderTheme = 'dark' | 'light';
 
 export interface HeaderProps {
   theme?: HeaderTheme;

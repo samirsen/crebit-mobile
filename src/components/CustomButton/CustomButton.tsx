@@ -57,7 +57,7 @@ export const CustomButton: React.FC<CustomButtonProps> = React.memo(({
     borderColor,
     disabled,
     withShadow,
-    hasGradient,
+    hasGradient ?? false,
     padding,
     style
   );

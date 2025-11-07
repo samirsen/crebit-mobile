@@ -38,44 +38,20 @@
       "sha1": "757805e615c974756646e54ceff8e409d5c47207"
     },
     {
-      "path": "assets/fonts/icomoon/Satoshi-Black.ttf",
-      "sha1": "fd050e574e3e81d3468651f9bc6184319b25bfc6"
+      "path": "assets/fonts/icomoon/Obviously.otf",
+      "sha1": "6deaca6647cd0e3cec0ab83f6094087723bded3e"
     },
     {
-      "path": "assets/fonts/icomoon/Satoshi-BlackItalic.ttf",
-      "sha1": "0a1c6b51a4bffe2a9cd395608e6d6ee57a707363"
+      "path": "assets/fonts/icomoon/Obviously_Blck.otf",
+      "sha1": "2bb806264f2b8d2cea66b85ada89d2558bbb82cd"
     },
     {
-      "path": "assets/fonts/icomoon/Satoshi-Bold.ttf",
-      "sha1": "b825a4a89b7257537a202316b08997a2d2f00a49"
+      "path": "assets/fonts/icomoon/Obviously_Semi 2.otf",
+      "sha1": "6ec18ab17819e56a3576c40d9d82020ea5ee42a6"
     },
     {
-      "path": "assets/fonts/icomoon/Satoshi-BoldItalic.ttf",
-      "sha1": "757e25289d8912882ed3a5c111bee38facc75412"
-    },
-    {
-      "path": "assets/fonts/icomoon/Satoshi-Italic.ttf",
-      "sha1": "6a4d18e57a4c55ce8005e86b3ec4430ec0b97e21"
-    },
-    {
-      "path": "assets/fonts/icomoon/Satoshi-Light.ttf",
-      "sha1": "ea23468d55ad9a76958cf84a52b71b65bea35db0"
-    },
-    {
-      "path": "assets/fonts/icomoon/Satoshi-LightItalic.ttf",
-      "sha1": "ee5d0d535e921f548f50eaf1ec7934567e70d10d"
-    },
-    {
-      "path": "assets/fonts/icomoon/Satoshi-Medium.ttf",
-      "sha1": "e4539f4688c865204a879dc3253d3547f0444818"
-    },
-    {
-      "path": "assets/fonts/icomoon/Satoshi-MediumItalic.ttf",
-      "sha1": "df05084ca7401b6a92d49e3fc5720fbdffbfbfbc"
-    },
-    {
-      "path": "assets/fonts/icomoon/Satoshi-Regular.ttf",
-      "sha1": "bc605aa08468cfb9a40275a6386ada56c92a5bed"
+      "path": "assets/fonts/icomoon/Obviously_Semi.otf",
+      "sha1": "6ec18ab17819e56a3576c40d9d82020ea5ee42a6"
     },
     {
       "path": "assets/fonts/icomoon/Satoshi-Variable.ttf",
@@ -86,120 +62,8 @@
       "sha1": "62c34444221ff17e93a8e1cadfea5a8c68ea705b"
     },
     {
-      "path": "assets/fonts/icomoon/fonnts.com-Obviously.otf",
-      "sha1": "6deaca6647cd0e3cec0ab83f6094087723bded3e"
-    },
-    {
-      "path": "assets/fonts/icomoon/fonnts.com-Obviously_Blck.otf",
-      "sha1": "2bb806264f2b8d2cea66b85ada89d2558bbb82cd"
-    },
-    {
-      "path": "assets/fonts/icomoon/fonnts.com-Obviously_Blck_Italic.otf",
-      "sha1": "d290178b3d5b7c2108cab3236a18b8df6e9cc96e"
-    },
-    {
-      "path": "assets/fonts/icomoon/fonnts.com-Obviously_Bold.otf",
-      "sha1": "f69e9f85f00f39eb146f0348f2f1de338d777d7e"
-    },
-    {
-      "path": "assets/fonts/icomoon/fonnts.com-Obviously_Bold_Italic.otf",
-      "sha1": "f4e5f4ed4fff02be8e0f049040656e047275e1f3"
-    },
-    {
-      "path": "assets/fonts/icomoon/fonnts.com-Obviously_Extd.otf",
-      "sha1": "af1956af555564f902284d6c6677ee32475ffddd"
-    },
-    {
-      "path": "assets/fonts/icomoon/fonnts.com-Obviously_Extd_Blck.otf",
-      "sha1": "cd4dbff77bb9dd97aa2759303ec5f59c4e946780"
-    },
-    {
-      "path": "assets/fonts/icomoon/fonnts.com-Obviously_Extd_Blck_Italic.otf",
-      "sha1": "2deee38cd1302d129eec64f21b8a11f74cdf41a3"
-    },
-    {
-      "path": "assets/fonts/icomoon/fonnts.com-Obviously_Extd_Bold_Bold.otf",
-      "sha1": "757481454082c86a78401e17d595fedc22e0b501"
-    },
-    {
-      "path": "assets/fonts/icomoon/fonnts.com-Obviously_Extd_Bold_Bold_Italic.otf",
-      "sha1": "df0a9b7f6b772702972d785f09153e130dba4534"
-    },
-    {
-      "path": "assets/fonts/icomoon/fonnts.com-Obviously_Extd_Italic.otf",
-      "sha1": "ff481bb96295584cea0f7e7838ed09f6efe89b4d"
-    },
-    {
-      "path": "assets/fonts/icomoon/fonnts.com-Obviously_Extd_Lght.otf",
-      "sha1": "d158a722181b07bc2ed403b5b3182e5c4a9cc35d"
-    },
-    {
-      "path": "assets/fonts/icomoon/fonnts.com-Obviously_Extd_Lght_Italic.otf",
-      "sha1": "2a9eeef5168b80d5b97995051172e061d4529b7f"
-    },
-    {
-      "path": "assets/fonts/icomoon/fonnts.com-Obviously_Extd_Medi.otf",
-      "sha1": "7c2e42ce5c1a8937bcb449181b7ce7489273e1e4"
-    },
-    {
-      "path": "assets/fonts/icomoon/fonnts.com-Obviously_Extd_Medi_Italic.otf",
-      "sha1": "47e797bec32801a960e480b868cdca77f0f9ad07"
-    },
-    {
-      "path": "assets/fonts/icomoon/fonnts.com-Obviously_Extd_Semi.otf",
-      "sha1": "0594098eb68350fa19c6e60a877f1dbdfeb3abfc"
-    },
-    {
-      "path": "assets/fonts/icomoon/fonnts.com-Obviously_Extd_Semi_Italic.otf",
-      "sha1": "7a1fcad08a7edf4dd7192d9907b401c940b8c17c"
-    },
-    {
-      "path": "assets/fonts/icomoon/fonnts.com-Obviously_Extd_Supr.otf",
-      "sha1": "a0523d673b4fe5bf4d4087db30a1a634bc19882a"
-    },
-    {
-      "path": "assets/fonts/icomoon/fonnts.com-Obviously_Extd_Thin.otf",
-      "sha1": "5c97a4ed2f07b73e99321aa7e67ebd9f022f9b9e"
-    },
-    {
-      "path": "assets/fonts/icomoon/fonnts.com-Obviously_Extd_Thin_Italic.otf",
-      "sha1": "3de2730deb94542138a341de1054b8a7cc354465"
-    },
-    {
-      "path": "assets/fonts/icomoon/fonnts.com-Obviously_Italic.otf",
-      "sha1": "ced44f2fe0b065e3be8f61f8bd4ced85f98d366a"
-    },
-    {
-      "path": "assets/fonts/icomoon/fonnts.com-Obviously_Lght.otf",
-      "sha1": "2165dd6e5e98f533872da747917c3a037ab9c925"
-    },
-    {
-      "path": "assets/fonts/icomoon/fonnts.com-Obviously_Lght_Italic.otf",
-      "sha1": "adce158adf36179eb8ea31c06d142079cc2f81a9"
-    },
-    {
-      "path": "assets/fonts/icomoon/fonnts.com-Obviously_Medi.otf",
-      "sha1": "91e950a3026feaf2d50ffcde538166e9207c7f3f"
-    },
-    {
-      "path": "assets/fonts/icomoon/fonnts.com-Obviously_Medi_Italic.otf",
-      "sha1": "0d3704ca6dfcb985d14a950320898a5fe7565c97"
-    },
-    {
       "path": "assets/fonts/icomoon/fonnts.com-Obviously_Semi.otf",
       "sha1": "6ec18ab17819e56a3576c40d9d82020ea5ee42a6"
-    },
-    {
-      "path": "assets/fonts/icomoon/fonnts.com-Obviously_Semi_Italic.otf",
-      "sha1": "d46afe84d0f7ad1b2641a2a26ceb29367823bd51"
-    },
-    {
-      "path": "assets/fonts/icomoon/fonnts.com-Obviously_Thin.otf",
-      "sha1": "b56f2e46a7fdf034f5f408182ee2f5b43e5be27e"
-    },
-    {
-      "path": "assets/fonts/icomoon/fonnts.com-Obviously_Thin_Italic.otf",
-      "sha1": "23a5e3c85d211bf15b9b25f71ff6486f324dc048"
     },
     {
       "path": "assets/fonts/icomoon/icomoon.ttf",

@@ -1,5 +1,5 @@
 export type AuthStackParamList = {
-  Login: undefined;
+  Landing: undefined;
 };
 
 export interface AuthNavigatorProps {

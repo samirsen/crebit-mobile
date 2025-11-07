@@ -50,18 +50,13 @@
 	<key>UIAppFonts</key>
 	<array>
 		<string>icomoon.ttf</string>
-		<string>Satoshi-Black.ttf</string>
-		<string>Satoshi-BlackItalic.ttf</string>
-		<string>Satoshi-Bold.ttf</string>
-		<string>Satoshi-BoldItalic.ttf</string>
-		<string>Satoshi-Italic.ttf</string>
-		<string>Satoshi-Light.ttf</string>
-		<string>Satoshi-LightItalic.ttf</string>
-		<string>Satoshi-Medium.ttf</string>
-		<string>Satoshi-MediumItalic.ttf</string>
-		<string>Satoshi-Regular.ttf</string>
 		<string>Satoshi-Variable.ttf</string>
 		<string>Satoshi-VariableItalic.ttf</string>
+		<string>fonnts.com-Obviously_Semi.otf</string>
+		<string>Obviously.otf</string>
+		<string>Obviously_Blck.otf</string>
+		<string>Obviously_Semi 2.otf</string>
+		<string>Obviously_Semi.otf</string>
 		<string>Inter-Black.ttf</string>
 		<string>Inter-Bold.ttf</string>
 		<string>Inter-ExtraBold.ttf</string>
@@ -71,35 +66,6 @@
 		<string>Inter-Regular.ttf</string>
 		<string>Inter-SemiBold.ttf</string>
 		<string>Inter-Thin.ttf</string>
-		<string>fonnts.com-Obviously.otf</string>
-		<string>fonnts.com-Obviously_Blck.otf</string>
-		<string>fonnts.com-Obviously_Blck_Italic.otf</string>
-		<string>fonnts.com-Obviously_Bold.otf</string>
-		<string>fonnts.com-Obviously_Bold_Italic.otf</string>
-		<string>fonnts.com-Obviously_Extd.otf</string>
-		<string>fonnts.com-Obviously_Extd_Blck.otf</string>
-		<string>fonnts.com-Obviously_Extd_Blck_Italic.otf</string>
-		<string>fonnts.com-Obviously_Extd_Bold_Bold.otf</string>
-		<string>fonnts.com-Obviously_Extd_Bold_Bold_Italic.otf</string>
-		<string>fonnts.com-Obviously_Extd_Italic.otf</string>
-		<string>fonnts.com-Obviously_Extd_Lght.otf</string>
-		<string>fonnts.com-Obviously_Extd_Lght_Italic.otf</string>
-		<string>fonnts.com-Obviously_Extd_Medi.otf</string>
-		<string>fonnts.com-Obviously_Extd_Medi_Italic.otf</string>
-		<string>fonnts.com-Obviously_Extd_Semi.otf</string>
-		<string>fonnts.com-Obviously_Extd_Semi_Italic.otf</string>
-		<string>fonnts.com-Obviously_Extd_Supr.otf</string>
-		<string>fonnts.com-Obviously_Extd_Thin.otf</string>
-		<string>fonnts.com-Obviously_Extd_Thin_Italic.otf</string>
-		<string>fonnts.com-Obviously_Italic.otf</string>
-		<string>fonnts.com-Obviously_Lght.otf</string>
-		<string>fonnts.com-Obviously_Lght_Italic.otf</string>
-		<string>fonnts.com-Obviously_Medi.otf</string>
-		<string>fonnts.com-Obviously_Medi_Italic.otf</string>
-		<string>fonnts.com-Obviously_Semi.otf</string>
-		<string>fonnts.com-Obviously_Semi_Italic.otf</string>
-		<string>fonnts.com-Obviously_Thin.otf</string>
-		<string>fonnts.com-Obviously_Thin_Italic.otf</string>
 	</array>
 </dict>
 </plist>

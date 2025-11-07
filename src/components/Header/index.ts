@@ -1,2 +1,2 @@
-export { Header, type HeaderTheme } from './Header';
+export { Header} from './Header';
 
