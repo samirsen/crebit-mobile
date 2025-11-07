@@ -1,4 +1,4 @@
-package com.crebitpay
+package com.crebit
 
 import android.animation.AnimatorSet
 import android.animation.ObjectAnimator

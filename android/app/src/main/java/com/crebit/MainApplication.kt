@@ -1,4 +1,4 @@
-package com.crebitpay
+package com.crebit
 
 import android.app.Application
 import com.facebook.react.PackageList

@@ -15,9 +15,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "13B07F861A680F5B00A75B9A"
-               BuildableName = "CrebitPay.app"
-               BlueprintName = "CrebitPay"
-               ReferencedContainer = "container:CrebitPay.xcodeproj">
+               BuildableName = "Crebit.app"
+               BlueprintName = "Crebit"
+               ReferencedContainer = "container:Crebit.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -33,9 +33,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "00E356ED1AD99517003FC87E"
-               BuildableName = "CrebitPayTests.xctest"
-               BlueprintName = "CrebitPayTests"
-               ReferencedContainer = "container:CrebitPay.xcodeproj">
+               BuildableName = "CrebitTests.xctest"
+               BlueprintName = "CrebitTests"
+               ReferencedContainer = "container:Crebit.xcodeproj">
             </BuildableReference>
          </TestableReference>
       </Testables>
@@ -55,9 +55,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "13B07F861A680F5B00A75B9A"
-            BuildableName = "CrebitPay.app"
-            BlueprintName = "CrebitPay"
-            ReferencedContainer = "container:CrebitPay.xcodeproj">
+            BuildableName = "Crebit.app"
+            BlueprintName = "Crebit"
+            ReferencedContainer = "container:Crebit.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </LaunchAction>
@@ -72,9 +72,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "13B07F861A680F5B00A75B9A"
-            BuildableName = "CrebitPay.app"
-            BlueprintName = "CrebitPay"
-            ReferencedContainer = "container:CrebitPay.xcodeproj">
+            BuildableName = "Crebit.app"
+            BlueprintName = "Crebit"
+            ReferencedContainer = "container:Crebit.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </ProfileAction>

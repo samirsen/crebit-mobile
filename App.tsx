@@ -1,5 +1,5 @@
 /**
- * CrebitPay - React Native App
+ * Crebit - React Native App
  * Advanced architecture with Redux Toolkit and React Navigation
  *
  * @format

@@ -1,4 +1,4 @@
-# CrebitPay
+# Crebit
 
 A modern React Native currency exchange and money transfer application with real-time rates and seamless user experience.
 
@@ -6,7 +6,7 @@ A modern React Native currency exchange and money transfer application with real
 
 - **Live Currency Exchange**: Real-time exchange rates with instant conversion calculations
 - **Multi-Currency Support**: Support for USD, BRL, and MXN with easy currency switching
-- **Service Comparison**: Compare CrebitPay rates with competitors (Wise, Flywire)
+- **Service Comparison**: Compare Crebit rates with competitors (Wise, Flywire)
 - **Transaction Management**: Track monthly and lifetime conversions with detailed history
 - **Account Management**: Complete user profile management with KYC compliance
 - **Swipe-to-Pay**: Intuitive swipe gesture for initiating transfers
@@ -66,7 +66,7 @@ npm start
 # Run on iOS
 npm run ios
 
-# Run on Android  
+# Run on Android
 npm run android
 ```
 
@@ -83,7 +83,7 @@ npm test
 ## 📁 Project Structure
 
 ```
-CrebitPay/
+Crebit/
 ├── __tests__/                    # Test files
 │   └── App.test.tsx
 ├── android/                      # Android native code
@@ -94,12 +94,12 @@ CrebitPay/
 │   ├── gradle/
 │   └── ...
 ├── ios/                          # iOS native code
-│   ├── CrebitPay/
+│   ├── Crebit/
 │   │   ├── AppDelegate.swift
 │   │   ├── Images.xcassets/
 │   │   ├── Info.plist
 │   │   └── LaunchScreen.storyboard
-│   ├── CrebitPay.xcodeproj/
+│   ├── Crebit.xcodeproj/
 │   ├── Podfile
 │   └── Pods/
 ├── assets/                       # Static assets
