@@ -1,10 +1,9 @@
 import {configureStore, combineReducers} from '@reduxjs/toolkit';
 import {persistStore, persistReducer} from 'redux-persist';
-import AsyncStorage from '@react-native-async-storage/async-storage'; // React Native
+import AsyncStorage from '@react-native-async-storage/async-storage';
 import authReducer from './slices/authSlice';
 import accountReducer from './slices/accountSlice';
 import {FLUSH, REHYDRATE, PAUSE, PERSIST, PURGE, REGISTER} from 'redux-persist';
-
 const persistConfig = {
   key: 'root',
   storage: AsyncStorage,
@@ -18,6 +17,13 @@ const rootReducer = combineReducers({
 
 const persistedReducer = persistReducer(persistConfig, rootReducer);
 
+// Load Reactotron only in dev
+let reactotronEnhancer: any;
+if (__DEV__) {
+  const Reactotron = require('../../ReactotronConfig').default;
+  reactotronEnhancer = Reactotron.createEnhancer?.();
+}
+
 export const store = configureStore({
   reducer: persistedReducer,
   middleware: getDefaultMiddleware =>
@@ -26,8 +32,13 @@ export const store = configureStore({
         ignoredActions: [FLUSH, REHYDRATE, PAUSE, PERSIST, PURGE, REGISTER],
       },
     }),
+  enhancers: getDefaultEnhancers =>
+    reactotronEnhancer
+      ? getDefaultEnhancers().concat(reactotronEnhancer) // use concat() instead of array
+      : getDefaultEnhancers(),
 });
 
 export const persistor = persistStore(store);
+
 export type RootState = ReturnType<typeof store.getState>;
 export type AppDispatch = typeof store.dispatch;
