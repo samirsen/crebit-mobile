@@ -57,18 +57,18 @@ export const AppNavigator = () => {
 
   return (
     <>
-      {/* ✅ Status bar setup */}
+      {/* Status bar setup */}
       <StatusBar
         barStyle={APP_NAVIGATOR_CONFIG.statusBar.barStyle}
         translucent={APP_NAVIGATOR_CONFIG.statusBar.translucent}
       />
 
-      {/* ✅ Always render NavigationContainer */}
+      {/* Always render NavigationContainer */}
       <NavigationContainer onReady={handleReady}>
         {isAuthenticated ? <RootNavigator /> : <AuthNavigator />}
       </NavigationContainer>
 
-      {/* ✅ Loader overlay while navigation initializing */}
+      {/* Loader overlay while navigation initializing */}
       {!isNavReady && <AppLoader />}
     </>
   );

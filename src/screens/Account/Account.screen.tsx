@@ -26,7 +26,6 @@ import {
 } from '../../components/CountrySelectModal';
 import {AccountStyles} from './Account.styles';
 import {AccountController} from './Account.controller';
-import {useKeyboardVisibility} from '../../hooks/useKeyboardVisibility';
 
 const COUNTRIES: CountryOption[] = [
   {code: 'US', name: 'United States', flag: '🇺🇸'},
@@ -38,7 +37,6 @@ export const AccountComponent: React.FC = React.memo(() => {
   const dispatch = useAppDispatch();
   const {formData, isLoading, isDirty} = useAppSelector(state => state.account);
   const [showCountryModal, setShowCountryModal] = useState(false);
-  const {setKeyboardVisibility} = useKeyboardVisibility();
 
   // Refs for input navigation
   const scrollViewRef = useRef<ScrollView>(null);
@@ -108,24 +106,20 @@ export const AccountComponent: React.FC = React.memo(() => {
   );
 
   // Auto-scroll to input when focused
-  const handleFocusAndScroll = useCallback(
-    (yPosition: number | null = null, scrollToEnd: boolean = false) => {
-      return () => {
-        setKeyboardVisibility(true);
-        AccountController.handleFocusAndScroll(
-          scrollViewRef,
-          yPosition,
-          scrollToEnd,
-        )();
-      };
-    },
-    [setKeyboardVisibility],
-  );
+  const handleFocusAndScroll = (
+    yPosition: number | null = null,
+    scrollToEnd: boolean = false,
+  ) => {
+    return () => {
+      AccountController.handleFocusAndScroll(
+        scrollViewRef,
+        yPosition,
+        scrollToEnd,
+      )();
+    };
+  };
 
   // Handle input blur
-  const handleInputBlur = useCallback(() => {
-    setKeyboardVisibility(false);
-  }, [setKeyboardVisibility]);
 
   const selectedCountry = useMemo(() => {
     return (
@@ -171,7 +165,6 @@ export const AccountComponent: React.FC = React.memo(() => {
                 ref={firstNameRef}
                 onSubmitEditing={() => handleSubmitEditing('firstName')}
                 onFocus={handleFocusAndScroll(60)}
-                onBlur={handleInputBlur}
               />
 
               {/* Last Name */}
@@ -185,7 +178,6 @@ export const AccountComponent: React.FC = React.memo(() => {
                 ref={lastNameRef}
                 onSubmitEditing={() => handleSubmitEditing('lastName')}
                 onFocus={handleFocusAndScroll(120)}
-                onBlur={handleInputBlur}
               />
 
               {/* Native Country */}
@@ -212,7 +204,6 @@ export const AccountComponent: React.FC = React.memo(() => {
                 ref={phoneNumberRef}
                 onSubmitEditing={() => handleSubmitEditing('phoneNumber')}
                 onFocus={handleFocusAndScroll(180)}
-                onBlur={handleInputBlur}
               />
 
               {/* Email */}
@@ -229,7 +220,6 @@ export const AccountComponent: React.FC = React.memo(() => {
                 returnKeyType="done"
                 onSubmitEditing={() => handleSubmitEditing('email')}
                 onFocus={handleFocusAndScroll(240)}
-                onBlur={handleInputBlur}
               />
             </View>
 
