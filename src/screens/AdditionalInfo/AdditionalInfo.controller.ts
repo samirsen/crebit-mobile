@@ -1,4 +1,4 @@
-import {useCallback, useState} from 'react';
+import {useCallback, useState, useMemo} from 'react';
 import {AdditionalInfoForm} from './AdditionalInfo.types';
 import {useNavigation} from '@react-navigation/native';
 import {useAppSelector} from '../../hooks/useAppSelector';
@@ -100,11 +100,25 @@ export function useAdditionalInfoController() {
     navigation.goBack();
   }, [navigation]);
 
+  // Check if all required fields are filled
+  const isFormValid = useMemo(() => {
+    const requiredFields = [
+      form.street.trim(),
+      form.city.trim(),
+      form.state.trim(),
+      form.zip.trim(),
+      form.country.trim(),
+    ];
+    
+    return requiredFields.every(field => field.length > 0);
+  }, [form.street, form.city, form.state, form.zip, form.country]);
+
   return {
     form,
     handleChange,
     handleContinue,
     handleGoBack,
     isLoading,
+    isFormValid,
   };
 }

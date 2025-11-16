@@ -1,4 +1,4 @@
-import React, {useRef, useState, useCallback} from 'react';
+import React, {useRef, useState, useCallback, useMemo} from 'react';
 import {
   View,
   SafeAreaView,
@@ -26,6 +26,7 @@ export const CreatePasswordScreen: React.FC = React.memo(() => {
     password: signUpData.password,
     confirmPassword: '',
   });
+  const [passwordError, setPasswordError] = useState('');
 
   const passwordRef = useRef<TextInput>(null);
   const confirmRef = useRef<TextInput>(null);
@@ -33,9 +34,34 @@ export const CreatePasswordScreen: React.FC = React.memo(() => {
   const handleChange = useCallback(
     (field: keyof typeof form) => (text: string) => {
       setForm(prev => ({...prev, [field]: text}));
+      
+      // Validate passwords when either field changes
+      if (field === 'password' || field === 'confirmPassword') {
+        const updatedForm = {...form, [field]: text};
+        
+        if (updatedForm.password && updatedForm.confirmPassword) {
+          if (updatedForm.password !== updatedForm.confirmPassword) {
+            setPasswordError('Passwords do not match');
+          } else {
+            setPasswordError('');
+          }
+        } else {
+          setPasswordError('');
+        }
+      }
     },
-    [],
+    [form],
   );
+
+  // Check if all required fields are filled and valid
+  const isFormValid = useMemo(() => {
+    const passwordFilled = form.password.trim().length > 0;
+    const confirmPasswordFilled = form.confirmPassword.trim().length > 0;
+    const passwordsMatch = form.password === form.confirmPassword;
+    const noPasswordError = !passwordError;
+    
+    return passwordFilled && confirmPasswordFilled && passwordsMatch && noPasswordError;
+  }, [form.password, form.confirmPassword, passwordError]);
 
   const handleContinue = useCallback(() => {
     // Store password in Redux before navigating
@@ -110,11 +136,16 @@ export const CreatePasswordScreen: React.FC = React.memo(() => {
                   ref={confirmRef}
                   onSubmitEditing={() => handleSubmitEditing('confirmPassword')}
                   containerStyle={CreatePasswordStyles.inputBox}
-                  borderColor="#CDCDCD"
+                  borderColor={passwordError ? "#FF0000" : "#CDCDCD"}
                   borderRadius={5}
                   height={41}
                   inputStyle={CreatePasswordStyles.input}
                 />
+                {passwordError ? (
+                  <StyledText style={{color: '#FF0000', fontSize: 12, marginTop: 4, marginLeft: 4}}>
+                    {passwordError}
+                  </StyledText>
+                ) : null}
               </View>
             </View>
           </ScrollView>
@@ -124,6 +155,7 @@ export const CreatePasswordScreen: React.FC = React.memo(() => {
               onBack={handleGoBack}
               continueText="Continue"
               backText="Go Back"
+              continueDisabled={!isFormValid}
               continueStyle={CreatePasswordStyles.continueButton}
               backStyle={CreatePasswordStyles.goBackButton}
               groupStyle={{}}

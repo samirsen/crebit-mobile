@@ -16,8 +16,14 @@ import {ButtonGroup} from '../../components/ButtonGroup';
 import {useRef, useCallback} from 'react';
 
 export const AdditionalInfoScreen: React.FC = React.memo(() => {
-  const {form, handleChange, handleContinue, handleGoBack, isLoading} =
-    useAdditionalInfoController();
+  const {
+    form,
+    handleChange,
+    handleContinue,
+    handleGoBack,
+    isLoading,
+    isFormValid,
+  } = useAdditionalInfoController();
 
   // Input refs (optional for field focus jump)
   const streetRef = useRef<TextInput>(null);
@@ -33,6 +39,9 @@ export const AdditionalInfoScreen: React.FC = React.memo(() => {
           cityRef.current?.focus();
           break;
         case 'city':
+          stateRef.current?.focus(); // Correct the focus here
+          break;
+        case 'state':
           zipRef.current?.focus(); // Correct the focus here
           break;
         case 'zip':
@@ -93,6 +102,7 @@ export const AdditionalInfoScreen: React.FC = React.memo(() => {
                   height={41}
                   containerStyle={AdditionalInfoStyles.inputBox}
                   inputStyle={AdditionalInfoStyles.input}
+                  onSubmitEditing={() => handleSubmitEditing('city')}
                 />
                 <StyledInputBox
                   label="State/ Province"
@@ -106,6 +116,7 @@ export const AdditionalInfoScreen: React.FC = React.memo(() => {
                   height={41}
                   containerStyle={AdditionalInfoStyles.inputBox}
                   inputStyle={AdditionalInfoStyles.input}
+                  onSubmitEditing={() => handleSubmitEditing('state')}
                 />
                 <StyledInputBox
                   label="Zip Code"
@@ -120,6 +131,7 @@ export const AdditionalInfoScreen: React.FC = React.memo(() => {
                   containerStyle={AdditionalInfoStyles.inputBox}
                   inputStyle={AdditionalInfoStyles.input}
                   keyboardType="number-pad"
+                  onSubmitEditing={() => handleSubmitEditing('zip')}
                 />
                 <StyledInputBox
                   label="Country"
@@ -133,6 +145,7 @@ export const AdditionalInfoScreen: React.FC = React.memo(() => {
                   height={41}
                   containerStyle={AdditionalInfoStyles.inputBox}
                   inputStyle={AdditionalInfoStyles.input}
+                  onSubmitEditing={() => handleSubmitEditing('country')}
                 />
               </View>
             </View>
@@ -141,12 +154,12 @@ export const AdditionalInfoScreen: React.FC = React.memo(() => {
             <ButtonGroup
               onContinue={handleContinue}
               onBack={handleGoBack}
-              continueText={isLoading ? "Processing..." : "Continue"}
+              continueText={isLoading ? 'Processing...' : 'Continue'}
               backText="Go Back"
+              continueDisabled={!isFormValid || isLoading}
               continueStyle={AdditionalInfoStyles.continueButton}
               backStyle={AdditionalInfoStyles.goBackButton}
               groupStyle={{}}
-              disabled={isLoading}
             />
             {/* StepIndicator remains below */}
             <StepIndicator

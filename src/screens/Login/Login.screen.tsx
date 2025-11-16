@@ -27,6 +27,7 @@ export const LoginScreen: React.FC = React.memo(() => {
     scrollRef,
     handleSubmitEditing,
     handleScrollTo,
+    isFormValid,
   } = useLoginController();
 
   return (
@@ -107,6 +108,7 @@ export const LoginScreen: React.FC = React.memo(() => {
               onBack={handleGoBack}
               continueText={loading ? 'Please wait...' : 'Continue'}
               backText="Go Back"
+              continueDisabled={!isFormValid || loading}
               continueStyle={LoginStyles.continueButton}
               backStyle={LoginStyles.goBackButton}
             />

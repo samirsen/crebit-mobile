@@ -1,5 +1,5 @@
 // src/screens/Login/useLoginController.ts
-import {useState, useCallback, useRef} from 'react';
+import {useState, useCallback, useRef, useMemo} from 'react';
 import {useNavigation} from '@react-navigation/native';
 import {loginWithEmail, loginWithPhone} from '../../utils/subabase/auth';
 import {Alert, ScrollView, TextInput} from 'react-native';
@@ -56,11 +56,6 @@ export const useLoginController = () => {
 
   // LOGIN LOGIC
   const handleContinue = useCallback(async () => {
-    if (!form.password) {
-      Alert.alert('Error', 'Password is required.');
-      return;
-    }
-
     setLoading(true);
 
     let result;
@@ -110,6 +105,16 @@ export const useLoginController = () => {
     navigation.goBack();
   }, [navigation]);
 
+  // Check if required fields for login are filled (email and password)
+  const isFormValid = useMemo(() => {
+    const emailFilled = form.email.trim().length > 0;
+    const passwordFilled = form.password.trim().length > 0;
+
+    // For login, we need either email OR phone, plus password
+    // But as per requirement, email and password are enough for login
+    return emailFilled && passwordFilled;
+  }, [form.email, form.password]);
+
   return {
     form,
     handleChange,
@@ -122,5 +127,6 @@ export const useLoginController = () => {
     scrollRef,
     handleSubmitEditing,
     handleScrollTo,
+    isFormValid,
   };
 };

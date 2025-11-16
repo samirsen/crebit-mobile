@@ -4,7 +4,7 @@
  */
 
 export const API_CONFIG = {
-  BASE_URL: 'http://localhost:5001',
+  BASE_URL: 'https://www.crebitpay.com',
   TIMEOUT: 30000,
   RETRY_ATTEMPTS: 3,
 } as const;
@@ -12,35 +12,35 @@ export const API_CONFIG = {
 export const API_ENDPOINTS = {
   // Health Check
   HEALTH: '/health',
-  
+
   // Customer Management
   CHECK_CUSTOMER_BY_ID: '/api/check-customer-by-id',
   CREATE_CUSTOMER: '/api/create-customer',
-  
+
   // External Account Management
   CREATE_EXTERNAL_ACCOUNT: '/api/create-external-account',
   CHECK_EXTERNAL_ACCOUNT: '/api/check-external-account',
-  
+
   // Quote Management
   CREATE_QUOTE: '/api/create-quote',
   CREATE_QUOTE_NEW: '/api/create-quote-new',
-  
+
   // Wallet Management
   CREATE_WALLET: '/api/create-wallet',
-  
+
   // Payment Processing
   CREATE_PIX_PAYMENT: '/api/create-pix-payment',
   CREATE_SPEI_PAYMENT: '/api/create-spei-payment',
-  
+
   // Transaction Status & Monitoring
   WEBHOOK_STATUS: '/api/webhook-status',
   USER_TRANSACTIONS: '/api/user-transactions',
   TRANSACTION_STATUS: '/transaction-status',
-  
+
   // Testing & Development
   TRIGGER_MOCK_WEBHOOK: '/api/trigger-mock-webhook',
   SETUP_WEBHOOK: '/api/setup-webhook',
-  
+
   // Webhook
   WEBHOOK_UNBLOCKPAY: '/webhook/unblockpay',
 } as const;
