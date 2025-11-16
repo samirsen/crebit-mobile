@@ -3,8 +3,11 @@ import {useState, useCallback, useRef} from 'react';
 import {useNavigation} from '@react-navigation/native';
 import {loginWithEmail, loginWithPhone} from '../../utils/subabase/auth';
 import {Alert, ScrollView, TextInput} from 'react-native';
+import {loginSuccess} from '../../store/slices/authSlice';
+import {useAppDispatch} from '../../hooks';
 
 export const useLoginController = () => {
+  const dispatch = useAppDispatch();
   const navigation = useNavigation();
   const [loading, setLoading] = useState(false);
   const [form, setForm] = useState({
@@ -85,13 +88,20 @@ export const useLoginController = () => {
       setLoading(false);
       return;
     }
-
-    // Navigate to OTP screen (Supabase sends OTP automatically)
-    (navigation as any).navigate('OtpVerification', {
-      source: 'LogIn',
-      phoneNumber: form.phoneNumber,
-      email: form.email,
-    });
+    dispatch(
+      loginSuccess({
+        id: '999',
+        name: 'Dummy User',
+        email: 'dummy@example.com',
+        balance: 10000,
+      }),
+    );
+    // // Navigate to OTP screen (Supabase sends OTP automatically)
+    // (navigation as any).navigate('OtpVerification', {
+    //   source: 'LogIn',
+    //   phoneNumber: form.phoneNumber,
+    //   email: form.email,
+    // });
 
     setLoading(false);
   }, [form, navigation]);

@@ -21,7 +21,7 @@ export const CreatePasswordScreen: React.FC = React.memo(() => {
   const navigation = useNavigation();
   const dispatch = useAppDispatch();
   const signUpData = useAppSelector(state => state.signUp);
-  
+
   const [form, setForm] = useState({
     password: signUpData.password,
     confirmPassword: '',
@@ -39,11 +39,12 @@ export const CreatePasswordScreen: React.FC = React.memo(() => {
 
   const handleContinue = useCallback(() => {
     // Store password in Redux before navigating
-    dispatch(updateSignUpData({
-      password: form.password,
-    }));
-    (navigation as any).navigate('OtpVerification', {
-      source: 'SignUp',
+    dispatch(
+      updateSignUpData({
+        password: form.password,
+      }),
+    );
+    (navigation as any).navigate('AdditionalInfo', {
       phoneNumber: signUpData.phoneNumber,
     });
   }, [navigation, dispatch, form.password, signUpData.phoneNumber]);
