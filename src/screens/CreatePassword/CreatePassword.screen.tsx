@@ -13,11 +13,17 @@ import {CreatePasswordStyles} from './CreatePassword.styles';
 import {useNavigation} from '@react-navigation/native';
 import {StepIndicator} from '../../components/StepIndicator';
 import {ButtonGroup} from '../../components/ButtonGroup';
+import {useAppSelector} from '../../hooks/useAppSelector';
+import {useAppDispatch} from '../../hooks/useAppDispatch';
+import {updateSignUpData} from '../../store/slices/signUpSlice';
 
 export const CreatePasswordScreen: React.FC = React.memo(() => {
   const navigation = useNavigation();
+  const dispatch = useAppDispatch();
+  const signUpData = useAppSelector(state => state.signUp);
+  
   const [form, setForm] = useState({
-    password: '',
+    password: signUpData.password,
     confirmPassword: '',
   });
 
@@ -32,11 +38,15 @@ export const CreatePasswordScreen: React.FC = React.memo(() => {
   );
 
   const handleContinue = useCallback(() => {
+    // Store password in Redux before navigating
+    dispatch(updateSignUpData({
+      password: form.password,
+    }));
     (navigation as any).navigate('OtpVerification', {
-      source: 'SignUp', // or 'LogIn' if it's login flow
-      phoneNumber: '+15551234567', // pass the phone number collected from previous screens
+      source: 'SignUp',
+      phoneNumber: signUpData.phoneNumber,
     });
-  }, [navigation]);
+  }, [navigation, dispatch, form.password, signUpData.phoneNumber]);
 
   const handleGoBack = useCallback(() => {
     navigation.goBack();

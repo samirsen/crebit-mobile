@@ -6,6 +6,10 @@ export {apiService} from './apiService';
 export const useHealthCheck = () => apiService.useHealthCheck();
 export const useCheckCustomerById = () => apiService.useCheckCustomerById();
 export const useCreateCustomer = () => apiService.useCreateCustomer();
+
+// Signup flow exports
+export const signUpUser = (email: string, password: string) => apiService.signUpUser(email, password);
+export const signUpComplete = (signUpData: any, authData: any) => apiService.signUpComplete(signUpData, authData);
 export const useCreateExternalAccount = () =>
   apiService.useCreateExternalAccount();
 export const useCheckExternalAccount = () =>

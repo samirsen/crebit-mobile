@@ -3,6 +3,7 @@ import {useCallback, useState} from 'react';
 import {OtpVerificationScreenParams} from './OtpVerification.types';
 import {useAppDispatch} from '../../hooks';
 import {loginSuccess} from '../../store/slices/authSlice';
+import {updateSignUpData} from '../../store/slices/signUpSlice';
 
 export function useOtpVerificationController(onResend?: () => void) {
   const navigation = useNavigation();
@@ -43,6 +44,10 @@ export function useOtpVerificationController(onResend?: () => void) {
         );
         // Navigate to home or app main screen
       } else if (source === 'SignUp') {
+        // Store OTP in Redux before navigating
+        dispatch(updateSignUpData({
+          otp: code,
+        }));
         // Continue normal signup flow
         (navigation as any).navigate('AdditionalInfo', {phoneNumber});
       }

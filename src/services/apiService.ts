@@ -5,6 +5,7 @@
 
 import { useQuery, useMutation, useQueryClient } from '@tanstack/react-query';
 import { apiClient } from '../utils/apiClient';
+import {signUpWithEmail} from '../utils/subabase/auth';
 import { API_ENDPOINTS, QUERY_KEYS, MUTATION_KEYS } from '../constants/api';
 import type {
   // Health Check
@@ -98,6 +99,24 @@ class ApiService {
         queryClient.invalidateQueries({ queryKey: QUERY_KEYS.CUSTOMER });
       },
     });
+  }
+
+  // Signup flow methods
+  async signUpUser(email: string, password: string) {
+    return signUpWithEmail(email, password);
+  }
+
+  async signUpComplete(signUpData: CreateCustomerRequest, authData: any) {
+    // Use Promise.allSettled to handle both API calls
+    const [supabaseResult, customerResult] = await Promise.allSettled([
+      Promise.resolve(authData), // Supabase signup already completed
+      this.createCustomer(signUpData)
+    ]);
+
+    return {
+      supabaseResult,
+      customerResult,
+    };
   }
 
   // ============================================================================

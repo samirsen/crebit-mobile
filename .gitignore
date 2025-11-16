@@ -100,3 +100,4 @@ jest-temp/
 *.orig
 *.log
 *.lock
+src/examples/apiUsageExample.ts

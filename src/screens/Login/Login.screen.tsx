@@ -1,64 +1,33 @@
-import React, {useCallback, useState, useRef} from 'react';
+// src/screens/Login/LoginScreen.tsx
+import React from 'react';
 import {
   View,
   SafeAreaView,
   ScrollView,
   KeyboardAvoidingView,
   Platform,
-  TextInput,
 } from 'react-native';
 import {StyledInputBox} from '../../components/StyledInputBox';
 import {StyledText} from '../../components/StyledText';
 import {LoginStyles} from './Login.styles';
-import {useNavigation} from '@react-navigation/native';
 import {ButtonGroup} from '../../components/ButtonGroup';
 
+import {useLoginController} from './Login.controller';
+
 export const LoginScreen: React.FC = React.memo(() => {
-  const navigation = useNavigation();
-  const [form, setForm] = useState({
-    phoneNumber: '',
-    email: '',
-    password: '',
-  });
-
-  const phoneRef = useRef<TextInput>(null);
-  const emailRef = useRef<TextInput>(null);
-  const passwordRef = useRef<TextInput>(null);
-
-  const handleChange = useCallback(
-    (field: keyof typeof form) => (text: string) => {
-      setForm(prev => ({...prev, [field]: text}));
-    },
-    [],
-  );
-
-  const handleContinue = useCallback(() => {
-    (navigation as any).navigate('OtpVerification', {
-      source: 'LogIn', // or 'LogIn' if it's login flow
-      phoneNumber: '+15551234567', // pass the phone number collected from previous screens
-    });
-  }, [navigation]);
-
-  const handleGoBack = useCallback(() => {
-    navigation.goBack();
-  }, [navigation]);
-
-  const handleSubmitEditing = useCallback(
-    (field: keyof typeof form) => {
-      switch (field) {
-        case 'phoneNumber':
-          emailRef.current?.focus();
-          break;
-        case 'email':
-          passwordRef.current?.focus();
-          break;
-        case 'password':
-          handleContinue(); // Trigger CTA action
-          break;
-      }
-    },
-    [handleContinue, emailRef, passwordRef],
-  );
+  const {
+    form,
+    handleChange,
+    handleContinue,
+    handleGoBack,
+    loading,
+    phoneRef,
+    emailRef,
+    passwordRef,
+    scrollRef,
+    handleSubmitEditing,
+    handleScrollTo,
+  } = useLoginController();
 
   return (
     <SafeAreaView style={LoginStyles.container}>
@@ -69,6 +38,7 @@ export const LoginScreen: React.FC = React.memo(() => {
         keyboardVerticalOffset={0}>
         <View style={{flex: 1}}>
           <ScrollView
+            ref={scrollRef}
             contentContainerStyle={LoginStyles.scrollContent}
             showsVerticalScrollIndicator={false}>
             <View style={LoginStyles.innerContainer}>
@@ -89,6 +59,7 @@ export const LoginScreen: React.FC = React.memo(() => {
                   borderColor="#CDCDCD"
                   borderRadius={5}
                   height={41}
+                  onFocus={() => handleScrollTo(50)}
                   keyboardType="phone-pad"
                   containerStyle={LoginStyles.inputBox}
                   inputStyle={LoginStyles.input}
@@ -110,6 +81,7 @@ export const LoginScreen: React.FC = React.memo(() => {
                   inputStyle={LoginStyles.input}
                   onSubmitEditing={() => handleSubmitEditing('email')}
                 />
+
                 <StyledInputBox
                   label="Password"
                   labelRequired
@@ -128,15 +100,15 @@ export const LoginScreen: React.FC = React.memo(() => {
               </View>
             </View>
           </ScrollView>
+
           <View style={LoginStyles.buttonGroup}>
             <ButtonGroup
               onContinue={handleContinue}
               onBack={handleGoBack}
-              continueText="Continue"
+              continueText={loading ? 'Please wait...' : 'Continue'}
               backText="Go Back"
               continueStyle={LoginStyles.continueButton}
               backStyle={LoginStyles.goBackButton}
-              groupStyle={{}}
             />
           </View>
         </View>

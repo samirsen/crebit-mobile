@@ -16,7 +16,7 @@ import {ButtonGroup} from '../../components/ButtonGroup';
 import {useRef, useCallback} from 'react';
 
 export const AdditionalInfoScreen: React.FC = React.memo(() => {
-  const {form, handleChange, handleContinue, handleGoBack} =
+  const {form, handleChange, handleContinue, handleGoBack, isLoading} =
     useAdditionalInfoController();
 
   // Input refs (optional for field focus jump)
@@ -141,11 +141,12 @@ export const AdditionalInfoScreen: React.FC = React.memo(() => {
             <ButtonGroup
               onContinue={handleContinue}
               onBack={handleGoBack}
-              continueText="Continue"
+              continueText={isLoading ? "Processing..." : "Continue"}
               backText="Go Back"
               continueStyle={AdditionalInfoStyles.continueButton}
               backStyle={AdditionalInfoStyles.goBackButton}
               groupStyle={{}}
+              disabled={isLoading}
             />
             {/* StepIndicator remains below */}
             <StepIndicator

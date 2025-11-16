@@ -35,7 +35,7 @@ const COUNTRIES: CountryOption[] = [
 
 export const AccountComponent: React.FC = React.memo(() => {
   const dispatch = useAppDispatch();
-  const {formData, isLoading, isDirty} = useAppSelector(state => state.account);
+  const {formData, userProfile, isLoading, isDirty} = useAppSelector(state => state.account);
   const [showCountryModal, setShowCountryModal] = useState(false);
 
   // Refs for input navigation
@@ -122,6 +122,7 @@ export const AccountComponent: React.FC = React.memo(() => {
   // Handle input blur
 
   const selectedCountry = useMemo(() => {
+    if (!formData.nativeCountry) return COUNTRIES[0];
     return (
       COUNTRIES.find(country => country.name === formData.nativeCountry) ||
       COUNTRIES[0]
@@ -184,7 +185,7 @@ export const AccountComponent: React.FC = React.memo(() => {
               <StyledInputBox
                 label="Native Country"
                 labelRequired
-                value={`${selectedCountry.flag} ${formData.nativeCountry}`}
+                value={formData.nativeCountry ? `${selectedCountry.flag} ${formData.nativeCountry}` : ''}
                 rightIcon="chevronDown"
                 iconSize={10}
                 rightIconOnPress={() => setShowCountryModal(true)}

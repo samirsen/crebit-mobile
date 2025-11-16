@@ -18,15 +18,22 @@ import {SignUpStyles} from './SignUp.styles';
 import {useNavigation} from '@react-navigation/native';
 import {StepIndicator} from '../../components/StepIndicator';
 import {ButtonGroup} from '../../components/ButtonGroup';
+import {useAppSelector} from '../../hooks/useAppSelector';
+import {useAppDispatch} from '../../hooks/useAppDispatch';
+import {updateSignUpData} from '../../store/slices/signUpSlice';
 
 export const SignUpScreen: React.FC = React.memo(() => {
   const navigation = useNavigation();
+  const dispatch = useAppDispatch();
+  const signUpData = useAppSelector(state => state.signUp);
+  
   const [form, setForm] = useState({
-    firstName: '',
-    lastName: '',
+    firstName: signUpData.firstName,
+    lastName: signUpData.lastName,
     nativeCountry: COUNTRIES[0].name,
-    phoneNumber: '',
-    email: '',
+    phoneNumber: signUpData.phoneNumber,
+    email: signUpData.email,
+    dateOfBirth: signUpData.dateOfBirth,
   });
   const [showCountryModal, setShowCountryModal] = useState(false);
 
@@ -34,6 +41,7 @@ export const SignUpScreen: React.FC = React.memo(() => {
   const lastNameRef = useRef<TextInput>(null);
   const phoneRef = useRef<TextInput>(null);
   const emailRef = useRef<TextInput>(null);
+  const dobRef = useRef<TextInput>(null);
 
   const handleChange = useCallback(
     (field: keyof typeof form) => (text: string) => {
@@ -53,8 +61,16 @@ export const SignUpScreen: React.FC = React.memo(() => {
   );
 
   const handleContinue = useCallback(() => {
+    // Store data in Redux before navigating
+    dispatch(updateSignUpData({
+      firstName: form.firstName,
+      lastName: form.lastName,
+      phoneNumber: form.phoneNumber,
+      email: form.email,
+      dateOfBirth: form.dateOfBirth,
+    }));
     (navigation as any).navigate('CreatePassword');
-  }, [navigation]);
+  }, [navigation, dispatch, form]);
 
   const handleGoBack = useCallback(() => {
     navigation.goBack();
@@ -73,11 +89,14 @@ export const SignUpScreen: React.FC = React.memo(() => {
           emailRef.current?.focus();
           break;
         case 'email':
+          dobRef.current?.focus();
+          break;
+        case 'dateOfBirth':
           handleContinue(); // Trigger CTA action
           break;
       }
     },
-    [handleContinue, lastNameRef, phoneRef, emailRef],
+    [handleContinue, lastNameRef, phoneRef, emailRef, dobRef],
   );
 
   return (
@@ -171,6 +190,20 @@ export const SignUpScreen: React.FC = React.memo(() => {
                   height={41}
                   keyboardType="email-address"
                   autoCapitalize="none"
+                  containerStyle={SignUpStyles.inputBox}
+                  inputStyle={SignUpStyles.input}
+                />
+                <StyledInputBox
+                  label="Date of Birth"
+                  labelRequired
+                  value={form.dateOfBirth}
+                  onChangeText={handleChange('dateOfBirth')}
+                  placeholder="YYYY-MM-DD"
+                  ref={dobRef}
+                  onSubmitEditing={() => handleSubmitEditing('dateOfBirth')}
+                  borderColor="#CDCDCD"
+                  borderRadius={5}
+                  height={41}
                   containerStyle={SignUpStyles.inputBox}
                   inputStyle={SignUpStyles.input}
                 />
