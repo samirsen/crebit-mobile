@@ -3,16 +3,18 @@ import {persistStore, persistReducer} from 'redux-persist';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import authReducer from './slices/authSlice';
 import accountReducer from './slices/accountSlice';
+import signUpReducer from './slices/signUpSlice';
 import {FLUSH, REHYDRATE, PAUSE, PERSIST, PURGE, REGISTER} from 'redux-persist';
 const persistConfig = {
   key: 'root',
   storage: AsyncStorage,
-  whitelist: ['auth', 'account'], // only persist auth and account slices
+  whitelist: ['auth', 'account'], // only persist auth and account slices (signUp is temporary)
 };
 
 const rootReducer = combineReducers({
   auth: authReducer,
   account: accountReducer,
+  signUp: signUpReducer,
 });
 
 const persistedReducer = persistReducer(persistConfig, rootReducer);

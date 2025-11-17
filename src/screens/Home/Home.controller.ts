@@ -1,10 +1,16 @@
-import { useState, useCallback } from 'react';
+import { useState, useCallback, useEffect } from 'react';
 import { useAppSelector } from '../../hooks/useAppSelector';
+import { useAppDispatch } from '../../hooks/useAppDispatch';
+import { setUserProfile, setLoading } from '../../store/slices/accountSlice';
+import { getUserProfile } from '../../utils/subabase/profiles';
+import { supabase } from '../../utils/subabase/supabaseClient';
 import { logger } from '../../utils/logger';
 import type { SectionType, HomeState, CurrencyData } from './Home.types';
 
 export const useHomeController = () => {
+  const dispatch = useAppDispatch();
   const user = useAppSelector(state => state.auth.user);
+  const userProfile = useAppSelector(state => state.account.userProfile);
 
   const [homeState, setHomeState] = useState<HomeState>({
     activeSection: 'crebit',
@@ -64,6 +70,31 @@ export const useHomeController = () => {
       rate: homeState.exchangeRate.rate,
     });
   }, [homeState.exchangeRate, homeState.sendAmount, homeState.receiveAmount]);
+
+  // Fetch user profile when component mounts and user is authenticated
+  useEffect(() => {
+    const fetchUserProfile = async () => {
+      try {
+        // Get current session
+        const { data: { session } } = await supabase.auth.getSession();
+        
+        if (session?.user?.id && !userProfile) {
+          dispatch(setLoading(true));
+          
+          const profile = await getUserProfile(session.user.id);
+          dispatch(setUserProfile(profile));
+          
+          logger.info('User profile fetched successfully');
+        }
+      } catch (error) {
+        logger.error('Failed to fetch user profile:', error);
+      } finally {
+        dispatch(setLoading(false));
+      }
+    };
+
+    fetchUserProfile();
+  }, [dispatch, userProfile]);
 
   return {
     user,
