@@ -2,6 +2,7 @@ export {useAppDispatch} from './useAppDispatch';
 export {useAppSelector} from './useAppSelector';
 export {useMemoizedValue} from './useMemoizedValue';
 export {useStatusBar} from './useStatusBar';
+export {usePlaidLink} from './usePlaidLink';
 
 export type {TypedAppDispatch} from './useAppDispatch/useAppDispatch.types';
 export type {TypedAppSelector} from './useAppSelector/useAppSelector.types';
@@ -10,3 +11,4 @@ export type {
   StatusBarConfig,
   RouteStatusBarMap,
 } from './useStatusBar/useStatusBar.types';
+export type {UsePlaidLinkOptions} from './usePlaidLink';

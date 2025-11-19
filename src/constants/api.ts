@@ -43,6 +43,10 @@ export const API_ENDPOINTS = {
 
   // Webhook
   WEBHOOK_UNBLOCKPAY: '/webhook/unblockpay',
+
+  // Plaid Integration
+  PLAID_CREATE_LINK_TOKEN: '/api/plaid/create-link-token',
+  PLAID_EXCHANGE_PUBLIC_TOKEN: '/api/plaid/exchange-public-token',
 } as const;
 
 export const QUERY_KEYS = {
