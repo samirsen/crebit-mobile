@@ -1,6 +1,14 @@
 import {apiService} from './apiService';
 
 export {apiService} from './apiService';
+export {plaidService} from './plaidService';
+export type {
+  CreateLinkTokenRequest,
+  CreateLinkTokenResponse,
+  ExchangePublicTokenRequest,
+  ExchangePublicTokenResponse,
+  PlaidError,
+} from './plaidService';
 
 // Export React Query hooks for easy access
 export const useHealthCheck = () => apiService.useHealthCheck();
